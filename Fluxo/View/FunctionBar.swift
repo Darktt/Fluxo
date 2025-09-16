@@ -122,7 +122,7 @@ struct FunctionBarButton: View
         .background(self.backgroundMaterial)
         .overlay(self.overlayStroke)
         .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
-        .shadow(color: self.isHover ? .black.opacity(0.08) : .clear, radius: 6.0, x: 0.0, y: 2.0)
+        .shadow(color: self.isHover ? Color.black.opacity(0.08) : .clear, radius: 6.0, x: 0.0, y: 2.0)
         .onHover {
             
             hover in
@@ -141,10 +141,11 @@ struct FunctionBarButton: View
         let base: AnyShapeStyle = AnyShapeStyle(.ultraThinMaterial)
         let view = RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                     .fill(base)
-                    .overlay(
+                    .overlay {
+                        
                         RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                            .fill(self.isHover ? Color.accentColor.opacity(0.08) : .clear)
-                    )
+                            .fill(self.isHover ? Color.white.opacity(0.05) : .clear)
+                    }
         
         return view
     }
@@ -165,10 +166,11 @@ struct FunctionBarButton: View
                 ),
                 lineWidth: 0.7
             )
-            .overlay(
+            .overlay {
+                
                 RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                     .strokeBorder(Color.black.opacity(0.12), lineWidth: 0.5)
                     .blendMode(.multiply)
-            )
+            }
     }
 }
