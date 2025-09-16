@@ -89,7 +89,6 @@ extension FunctionBar
     }
 }
 
-// 新增現代化按鈕元件
 private
 struct FunctionBarButton: View
 {
@@ -107,27 +106,69 @@ struct FunctionBarButton: View
         
         Button(action: self.action) {
             
-            HStack(spacing: 6) {
+            HStack(spacing: 6.0) {
                 
                 Image(systemName: self.icon)
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(.system(size: 15.0, weight: .semibold))
                 
                 Text(self.label)
-                    .font(.system(size: 14, weight: .medium))
+                    .font(.system(size: 14.0, weight: .medium))
             }
-            .padding(.vertical, 6)
-            .padding(.horizontal, 14)
-            .background(self.isHover ? Color.accentColor.opacity(0.18) : Color.clear)
-            .foregroundColor(self.isHover ? .accentColor : .primary)
-            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-            .shadow(color: self.isHover ? .accentColor.opacity(0.08) : .clear, radius: 4, x: 0, y: 1)
+            .padding(.vertical, 6.0)
+            .padding(.horizontal, 14.0)
+            .contentShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
         }
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(.plain)
+        .background(self.backgroundMaterial)
+        .overlay(self.overlayStroke)
+        .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+        .shadow(color: self.isHover ? .black.opacity(0.08) : .clear, radius: 6.0, x: 0.0, y: 2.0)
         .onHover {
+            
             hover in
             
             self.isHover = hover
         }
         .animation(.easeInOut(duration: 0.18), value: self.isHover)
+    }
+    
+    // MARK: - Glass Layers -
+    
+    private
+    var backgroundMaterial: some View
+    {
+        // 基礎玻璃材質：可視需求換 .thinMaterial / .regularMaterial
+        let base: AnyShapeStyle = AnyShapeStyle(.ultraThinMaterial)
+        let view = RoundedRectangle(cornerRadius: 10.0, style: .continuous)
+                    .fill(base)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10.0, style: .continuous)
+                            .fill(self.isHover ? Color.accentColor.opacity(0.08) : .clear)
+                    )
+        
+        return view
+    }
+    
+    private
+    var overlayStroke: some View
+    {
+        // 亮邊 + 暗邊 疊加，營造玻璃邊緣質感
+        RoundedRectangle(cornerRadius: 10.0, style: .continuous)
+            .strokeBorder(
+                LinearGradient(
+                    colors: [
+                        .white.opacity(0.55),
+                        .white.opacity(0.18)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ),
+                lineWidth: 0.7
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 10.0, style: .continuous)
+                    .strokeBorder(Color.black.opacity(0.12), lineWidth: 0.5)
+                    .blendMode(.multiply)
+            )
     }
 }
