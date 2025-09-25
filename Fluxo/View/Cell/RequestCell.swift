@@ -38,8 +38,8 @@ struct RequestCell: View
         .padding(.horizontal, 16.0)
         .background(self.backgroundColor())
         .overlay(self.overlay())
-        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-        .shadow(color: self.shadowColor(), radius: self.isSelected ? 7 : 4, x: 0, y: 1)
+        .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+        .shadow(color: self.shadowColor(), radius: self.isSelected ? 7.0 : 4.0, x: 0.0, y: 1.0)
         .onHover {
             hover in
             
@@ -88,9 +88,9 @@ extension RequestCell
     func overlay() -> some View
     {
         let borderColor: Color = self.isSelected ? Color.accentColor : Color.clear
-        let lineWidth: CGFloat = self.isSelected ? 2 : 0.5
+        let lineWidth: CGFloat = self.isSelected ? 2.0 : 0.5
         
-        let view = RoundedRectangle(cornerRadius: 10, style: .continuous)
+        let view = RoundedRectangle(cornerRadius: 10.0, style: .continuous)
             .stroke(borderColor, lineWidth: lineWidth)
         
         return view
@@ -99,6 +99,14 @@ extension RequestCell
 
 // MARK: - Preview -
 
-#Preview {
+#Preview("Unselected") {
+    
+    RequestCell(title: "Request Method", detail: "PUT", isSelected: false)
+        .frame(width: 300.0)
+}
+
+#Preview("Selected") {
+    
     RequestCell(title: "Request Method", detail: "GET", isSelected: true)
+        .frame(width: 300.0)
 }

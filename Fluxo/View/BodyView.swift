@@ -63,7 +63,7 @@ extension BodyView
         if kTextContentTypes.contains(contentType),
             let body = self.bodyString.and({ !$0.isEmpty }) {
             
-            let view = BodyView.TextContent(bodyString: body)
+            let view = BodyView.TextContent(body)
             
             return view.eraseToAnyView
         }
@@ -105,13 +105,53 @@ extension BodyView
 {
     struct TextContent: View
     {
-        let bodyString: String
+        let content: Content
         
         var body: some View {
             
-            Text(self.bodyString)
+            Text(self.content)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
+        }
+        
+        // MARK: - Methods -
+        // MARK: Initial Method
+        
+        init(_ content: any StringProtocol)
+        {
+            self.content = Content.string(content)
+        }
+        
+        init(_ content: LocalizedStringKey)
+        {
+            self.content = Content.localized(content)
+        }
+    }
+}
+
+private
+extension BodyView.TextContent
+{
+    enum Content
+    {
+        case string(any StringProtocol)
+        
+        case localized(LocalizedStringKey)
+    }
+}
+
+private
+extension Text
+{
+    init(_ content: BodyView.TextContent.Content)
+    {
+        switch content {
+                
+            case .string(let string):
+                self.init(string)
+                
+            case .localized(let key):
+                self.init(key)
         }
     }
 }
@@ -135,7 +175,9 @@ extension BodyView
                     .frame(maxWidth: .infinity, maxHeight: 200)
             } else {
                 
-                BodyView.TextContent(bodyString: "Unable to load image.")
+                let content = LocalizedStringKey("Unable to load image.")
+                
+                BodyView.TextContent(content)
             }
         }
     }
@@ -236,7 +278,7 @@ extension BodyView.FormDataContent
                     BodyView.FileContent(path: path)
                 } else {
                     
-                    BodyView.TextContent(bodyString: self.part.content ?? "")
+                    BodyView.TextContent(self.part.content ?? "")
                 }
             }
             

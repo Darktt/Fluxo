@@ -107,14 +107,14 @@ extension MainView
                 // 分隔線
                 Rectangle()
                     .fill(Color.secondary.opacity(0.15))
-                    .frame(width: 1)
-                    .padding(.vertical, 8)
+                    .frame(width: 1.0)
+                    .padding(.vertical, 8.0)
                 
                 // Content（DetailView）
                 DetailView(request: selectedRequest)
                     .clipShape(RoundedRectangle(cornerRadius: 8.0, style: .continuous))
-                    .padding([.leading, .bottom], 5)
-                    .padding(.trailing, 7)
+                    .padding([.leading, .bottom], 5.0)
+                    .padding(.trailing, 7.0)
                     .frame(width: geometry.size.width * 0.7)
             }
         }

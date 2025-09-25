@@ -148,67 +148,20 @@ extension DetailView
         .background(Color(NSColor.windowBackgroundColor).opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
     }
-    
-    func bodyView(withImagePath path: URL) -> some View
-    {
-        VStack(alignment: .leading, spacing: 10) {
-            
-            Text("Body")
-                .font(.headline)
-                .padding(.vertical, 5)
-            
-            Divider().background(Color.accentColor.opacity(0.18))
-            
-            if let image = NSImage(contentsOf: path) {
-            
-                Image(nsImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: .infinity, maxHeight: 200)
-            } else {
-                
-                Text("Unable to load image.")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-            }
-        }
-        .padding(10)
-        .background(Color(NSColor.windowBackgroundColor).opacity(0.5))
-        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-    }
-    
-    func bodyView(with body: String) -> some View
-    {
-        VStack(alignment: .leading, spacing: 10) {
-            
-            Text("Body")
-                .font(.headline)
-                .padding(.vertical, 5)
-            
-            Divider().background(Color.accentColor.opacity(0.18))
-            
-            Text(body)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-        }
-        .padding(10)
-        .background(Color(NSColor.windowBackgroundColor).opacity(0.5))
-        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-    }
 }
 
-#Preview("DetailView (Empty)") {
+#Preview("Empty") {
     
     DetailView(request: nil)
 }
 
-#Preview("DetailView (GET)") {
+#Preview("GET") {
     
     DetailView(request: kDummyRequests.first)
         .frame(minWidth: 300)
 }
 
-#Preview("DetailView (POST)") {
+#Preview("POST") {
     
     DetailView(request: kDummyRequests.last)
         .frame(minWidth: 300)
