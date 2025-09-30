@@ -123,14 +123,15 @@ extension MainView
     
     func ipAddress() -> String {
         
+        let portNumber: String = "\(ServiceConfig.port)"
         let ipAddress: String = self.state.ipAddress.map {
             
             ipAddress in
             
-            ", http://\(ipAddress):\(self.state.portNumber)"
+            ", http://\(ipAddress):\(portNumber)"
         } ?? ""
         
-        return "http://localhost:\(self.state.portNumber)" + ipAddress
+        return "http://localhost:\(portNumber)" + ipAddress
     }
 }
 
