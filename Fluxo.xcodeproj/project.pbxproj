@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F2F7F6962E6E67F5000881A5 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = F2F7F6952E6E67F5000881A5 /* Algorithms */; };
 		F2F7F6982E6E6E19000881A5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F2F7F6972E6E6E19000881A5 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2F7F6962E6E67F5000881A5 /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +111,6 @@
 			);
 			name = Fluxo;
 			packageProductDependencies = (
-				F2F7F6952E6E67F5000881A5 /* Algorithms */,
 			);
 			productName = HttpRequestMonitor;
 			productReference = F27BDBA52E544D5400036841 /* Fluxo.app */;
@@ -172,7 +169,6 @@
 			mainGroup = F27BDB9C2E544D5400036841;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F2F7F6942E6E67F5000881A5 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F27BDBA62E544D5400036841 /* Products */;
@@ -472,25 +468,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F2F7F6942E6E67F5000881A5 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-algorithms";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		F2F7F6952E6E67F5000881A5 /* Algorithms */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F2F7F6942E6E67F5000881A5 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
-			productName = Algorithms;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F27BDB9D2E544D5400036841 /* Project object */;
 }

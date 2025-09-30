@@ -11,9 +11,8 @@ import Network
 public
 class HTTPConnection
 {
-    //The TCP maximum package size is 64K 65536
     public
-    let MTU: Int = 65536
+    let MTU: Int = ServiceConfig.mtu
     
     public
     let identifier: String = UUID().uuidString

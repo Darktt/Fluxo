@@ -14,9 +14,6 @@ struct MonitorState
     // MARK: - Properties -
     
     public
-    let portNumber: UInt16 = 3000
-    
-    public
     let ipAddress: String? = getIPAddress()
     
     public private(set)
