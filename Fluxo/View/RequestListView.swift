@@ -60,9 +60,13 @@ extension RequestListView
             
             LazyVStack {
                 
-                ForEach(self.requests) { request in
+                ForEach(self.requests) {
                     
-                    RequestCell(title: request.rootUrl, detail: request.requestMethod, isSelected: (request == self.selectedRequest))
+                    request in
+                    
+                    RequestCell(title: request.rootUrl,
+                                detail: request.requestMethod,
+                                isSelected: (request == self.selectedRequest))
                         .onTapGesture {
                             
                             self.selectedHandler?(request)
