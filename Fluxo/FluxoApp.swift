@@ -45,6 +45,11 @@ struct FluxoApp: App
             
             ToolsCommands(store: kMonitorStore)
         }
+        
+        Settings {
+            
+            SettingView()
+        }
     }
     
     public
