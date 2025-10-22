@@ -11,7 +11,7 @@ public
 struct SettingView: View
 {
     @State
-    var port: String = "3000"
+    var port: UInt16 = Setting().port
     
     public
     var body: some View {
@@ -25,12 +25,17 @@ struct SettingView: View
                 
                 Section {
                     
-                    TextField(text: self.$port, prompt: nil) {
-                        
-                        Text("Monitor Port:")
-                    }
-                    .textFieldStyle(.roundedBorder)
-                    .frame(width: 100)
+                    TextField("Monitor Port:", value: self.$port, format: .number, prompt: Text("Default: 3000"))
+                        .onChange(of: self.port) {
+                            
+                            _, new in
+                            
+                            var setting = Setting()
+                            setting.port = new
+                        }
+                        .textFieldStyle(.roundedBorder)
+                        .disableAutocorrection(true)
+                        .frame(width: 100)
                 }
                 
                 Section("Custom response") {

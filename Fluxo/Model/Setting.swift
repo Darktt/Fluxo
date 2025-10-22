@@ -12,9 +12,9 @@ struct Setting
 {
     // MARK: - Properties -
     
-    @UserDefaultsWrapper("port", defaultValue: nil)
+    @UserDefaultsWrapper("port", defaultValue: 3000)
     public
-    var port: UInt16?
+    var port: UInt16
     
     // MARK: - Methods -
     // MARK: Initial Method
