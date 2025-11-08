@@ -22,7 +22,8 @@ let MonitorMiddleware: Middleware<MonitorState, MonitorAction> = {
             
             if case .startMonitor = action {
                 
-                let newAction = startMonitorAction()
+                let port: UInt16 = store.state.setting.port
+                let newAction = startMonitorAction(portNumber: port)
                 
                 next(newAction)
             }
@@ -41,11 +42,10 @@ let MonitorMiddleware: Middleware<MonitorState, MonitorAction> = {
 }
 
 private
-func startMonitorAction() -> MonitorAction
+func startMonitorAction(portNumber: UInt16) -> MonitorAction
 {
     do {
         
-        let portNumber = ServiceConfig.port
         let port = NWEndpoint.Port(integerLiteral: portNumber)
         let service = try HTTPService(port: port)
         service.statusUpdateHandler = serviceStatusUpdate(status:)

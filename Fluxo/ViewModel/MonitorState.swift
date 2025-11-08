@@ -55,6 +55,9 @@ struct MonitorState
     public
     var selectedRequest: Request?
     
+    public
+    var setting: Setting = Setting()
+    
     // MARK: - Methods -
     // MARK: Initial Method
     
@@ -92,5 +95,11 @@ struct MonitorState
         }
         
         self.requests.insert(request, at: 0)
+    }
+    
+    public mutating
+    func updatePort(_ port: UInt16)
+    {
+        self.setting.port = port
     }
 }

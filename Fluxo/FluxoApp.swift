@@ -49,6 +49,7 @@ struct FluxoApp: App
         Settings {
             
             SettingView()
+                .environmentObject(kMonitorStore)
         }
     }
     

@@ -48,6 +48,16 @@ func kReducer(state: MonitorState, action: MonitorAction) -> MonitorState {
         newState.error = monitorError
     }
     
+    if case let .updatePort(port) = action {
+        
+        newState.updatePort(port)
+    }
+    
+    if case let .addRequestItem(item) = action {
+        
+        newState.setting.add(item)
+    }
+    
     return newState
 }
 

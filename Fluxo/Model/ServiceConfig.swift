@@ -12,9 +12,6 @@ struct ServiceConfig
 {
     // MARK: - Properties -
     
-    public static
-    let port: UInt16 = Setting().port ?? 3000
-    
     //The TCP maximum package size is 64K 65536
     public static
     let mtu: Int = 65536

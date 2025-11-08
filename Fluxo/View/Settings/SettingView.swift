@@ -10,6 +10,10 @@ import SwiftUI
 public
 struct SettingView: View
 {
+    @EnvironmentObject
+    private
+    var store: MonitorStore
+    
     public
     var body: some View {
         
@@ -42,6 +46,7 @@ extension SettingView
             Tab("General", systemImage: "gear") {
                 
                 GeneralSettingView()
+                    .environmentObject(self.store)
             }
             
             Tab("Custom Responses Content", systemImage: "list.bullet") {
@@ -56,6 +61,7 @@ extension SettingView
         TabView {
             
             GeneralSettingView()
+                .environmentObject(self.store)
                 .tabItem {
                     Label("General", systemImage: "gear")
                 }

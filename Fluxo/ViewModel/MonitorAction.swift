@@ -27,4 +27,8 @@ enum MonitorAction
     case cleanRequests
     
     case error(MonitorError)
+    
+    case updatePort(UInt16)
+    
+    case addRequestItem(RequestItem)
 }

@@ -10,8 +10,31 @@ import SwiftUI
 public
 struct GeneralSettingView: View
 {
-    @State
-    var port: UInt16 = Setting().port
+    @EnvironmentObject
+    private
+    var store: MonitorStore
+    
+    private
+    var state: MonitorState {
+        
+        self.store.state
+    }
+    
+    private
+    var port: Binding<UInt16> {
+        
+        Binding {
+            
+            self.state.setting.port
+        } set: {
+            
+            new in
+            
+            let action = MonitorAction.updatePort(new)
+            self.store.dispatch(action)
+        }
+
+    }
     
     public
     var body: some View {
@@ -23,17 +46,10 @@ struct GeneralSettingView: View
                 Spacer(minLength: 20.0)
                 
                 TextField("Monitor Port:",
-                          value: self.$port,
+                          value: self.port,
                           format: .number.grouping(.never),
                           prompt: Text("Default: 3000")
                 )
-                .onChange(of: self.port) {
-                    
-                    _, new in
-                    
-                    var setting = Setting()
-                    setting.port = new
-                }
                 .textFieldStyle(.roundedBorder)
                 .disableAutocorrection(true)
                 

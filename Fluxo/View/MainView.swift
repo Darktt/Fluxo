@@ -123,7 +123,7 @@ extension MainView
     
     func ipAddress() -> String {
         
-        let portNumber: String = "\(ServiceConfig.port)"
+        let portNumber: String = "\(self.state.setting.port)"
         let ipAddress: String = self.state.ipAddress.map {
             
             ipAddress in
