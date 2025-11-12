@@ -53,9 +53,14 @@ func kReducer(state: MonitorState, action: MonitorAction) -> MonitorState {
         newState.updatePort(port)
     }
     
-    if case let .addRequestItem(item) = action {
+    if case let .addResponseItem(item) = action {
         
         newState.setting.add(item)
+    }
+    
+    if case let .deleteResponseItem(item) = action {
+        
+        newState.setting.remove(item)
     }
     
     return newState

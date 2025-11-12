@@ -26,46 +26,61 @@ struct ResponseSettingView: View
         self.state.setting.requestItems
     }
     
+    @State
+    private
+    var path = NavigationPath()
+    
     private
     let limitCount: Int = 20
     
     public
     var body: some View {
         
-        VStack {
+        NavigationStack(path: self.$path) {
             
-            ResponseItemCell.Title()
-            
-            ScrollView {
+            VStack {
                 
-                LazyVStack(alignment: .leading, spacing: 0.0) {
+                ResponseItemCell.Title()
+                
+                ScrollView {
                     
-                    ForEach(self.requestItems) {
+                    LazyVStack(alignment: .leading, spacing: 0.0) {
                         
-                        item in
-                        
-                        ResponseItemCell(requestItem: item,
-                                         deleteAction: self.deleteItem,
-                                         editAction: self.editItem)
-                    }
-                    
-                    if self.requestItems.count < self.limitCount {
-                        
-                        ForEach(0 ..< (self.limitCount - self.requestItems.count),
-                                id: \.self) {
+                        ForEach(self.requestItems) {
                             
-                            _ in
+                            item in
                             
-                            ResponseItemCell(requestItem: ResponseItem.empty())
+                            ResponseItemCell(requestItem: item,
+                                             deleteAction: self.deleteItem,
+                                             editAction: self.editItem)
+                        }
+                        
+                        if self.requestItems.count < self.limitCount {
+                            
+                            ForEach(0 ..< (self.limitCount - self.requestItems.count),
+                                    id: \.self) {
+                                
+                                _ in
+                                
+                                ResponseItemCell(requestItem: ResponseItem.empty())
+                            }
                         }
                     }
                 }
+                .padding(.bottom, 5.0)
+                
+                self.addButton()
             }
-            .padding(.bottom, 5.0)
-            
-            self.addButton()
+            .padding(.bottom, 2.0)
+            .navigationDestination(for: ResponseItem.self) {
+                
+                item in
+                
+                ResponseItemEditView(responseItem: item, navigationPath: self.$path)
+                    .environmentObject(self.store)
+            }
+            .navigationTitle("Custom Responses Content")
         }
-        .padding(.bottom, 2.0)
     }
 }
 
@@ -97,17 +112,21 @@ extension ResponseSettingView
 
 extension ResponseSettingView
 {
-    func deleteItem(item: ResponseItem) {
+    func deleteItem(item: ResponseItem)
+    {
+        let action = MonitorAction.deleteResponseItem(item)
         
+        self.store.dispatch(action)
     }
     
-    func editItem(item: ResponseItem) {
-        
+    func editItem(item: ResponseItem)
+    {
+        self.path.append(item)
     }
     
-    func addItem() {
-        
-        
+    func addItem()
+    {
+        self.path.append(ResponseItem.empty())
     }
 }
 

@@ -27,6 +27,12 @@ enum HTTPMethod: String
     case put     = "PUT"
     
     case trace   = "TRACE"
+    
+    public static
+    var allCases: Array<HTTPMethod> {
+        
+        [.connect, .delete, .get, .head, .options, .patch, .post, .put, .trace]
+    }
 }
 
 extension HTTPMethod: Equatable
@@ -59,5 +65,19 @@ extension HTTPMethod: Equatable
     public static func == (lhs: HTTPMethod, rhs: HTTPMethod) -> Bool
     {
         return lhs.rawValue == rhs.rawValue
+    }
+}
+
+extension HTTPMethod: Codable
+{
+    
+}
+
+extension HTTPMethod: Identifiable
+{
+    public
+    var id: String {
+        
+        self.rawValue
     }
 }

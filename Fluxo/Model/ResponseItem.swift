@@ -109,8 +109,3 @@ extension ResponseItem
         case content
     }
 }
-
-extension HTTPMethod: Codable
-{
-    
-}

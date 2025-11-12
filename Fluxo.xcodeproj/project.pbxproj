@@ -44,22 +44,9 @@
 		F2F7F6972E6E6E19000881A5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F2F2AAA32E56A5F300FA9464 /* Exceptions for "Fluxo" folder in "FluxoTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Extension/OptionalExtension.swift,
-			);
-			target = F2F2AA982E56A44000FA9464 /* FluxoTests */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F27BDBA72E544D5400036841 /* Fluxo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				F2F2AAA32E56A5F300FA9464 /* Exceptions for "Fluxo" folder in "FluxoTests" target */,
-			);
 			path = Fluxo;
 			sourceTree = "<group>";
 		};

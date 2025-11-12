@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftExtensions
 
 public
 struct Setting
@@ -62,12 +63,17 @@ struct Setting
     public mutating
     func add(_ item: ResponseItem)
     {
+        if let index = self.requestItems.firstIndex(of: item) {
+            
+            self.requestItems.remove(at: index)
+        }
+        
         self.requestItems.append(item)
     }
     
     public mutating
-    func remove(at index: Int)
+    func remove(_ item: ResponseItem)
     {
-        self.requestItems.remove(at: index)
+        self.requestItems.remove(object: item)
     }
 }

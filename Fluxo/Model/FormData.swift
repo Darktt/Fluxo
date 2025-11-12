@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftExtensions
 
 public
 struct FormData

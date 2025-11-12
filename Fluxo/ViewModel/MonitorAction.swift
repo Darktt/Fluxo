@@ -30,5 +30,7 @@ enum MonitorAction
     
     case updatePort(UInt16)
     
-    case addRequestItem(ResponseItem)
+    case addResponseItem(ResponseItem)
+    
+    case deleteResponseItem(ResponseItem)
 }
