@@ -40,7 +40,7 @@ struct ResponseItemEditView: View
     }
     
     private
-    var title: String {
+    var title: LocalizedStringKey {
         
         guard self.responseItem.path.isEmpty else {
             
@@ -65,6 +65,8 @@ struct ResponseItemEditView: View
                 self.buttonSection()
             }
         }
+        .padding(.allEdge(10.0))
+        .navigationBarBackButtonHidden()
         .navigationTitle(self.title)
     }
     
@@ -126,6 +128,11 @@ extension ResponseItemEditView
         Section {
             
             HStack {
+                
+                Button("Cancel") {
+                    
+                    self.navigationPath.removeLast()
+                }
                 
                 Spacer()
                 

@@ -51,7 +51,7 @@ struct FluxoApp: App
             
             SettingView()
                 .environmentObject(kMonitorStore)
-                .frame(width: 600.0, height: 400.0)
+                .frame(width: 800.0, height: 400.0)
         }
     }
     

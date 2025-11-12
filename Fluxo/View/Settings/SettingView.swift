@@ -14,60 +14,92 @@ struct SettingView: View
     private
     var store: MonitorStore
     
+    @State
+    private
+    var selectedSetting: Item = .general
+    
     public
     var body: some View {
         
-        ZStack {
+        NavigationSplitView {
             
-            if #available(macOS 15.0, *) {
-                
-                self.tabViewAfter15()
-            } else {
-                
-                self.tabView()
-            }
+            self.sidebar()
+        } detail: {
+            
+            self.detailView()
         }
-        .scenePadding()
+        .navigationSplitViewStyle(.prominentDetail)
     }
 }
 
 private
 extension SettingView
 {
-    @available(macOS 15.0, *)
-    func tabViewAfter15() -> some View
+    func sidebar() -> some View
     {
-        TabView {
+        List(Item.allCases, id: \.self, selection: self.$selectedSetting) {
             
-            Tab("General", systemImage: "gear") {
-                
-                GeneralSettingView()
-                    .environmentObject(self.store)
-            }
+            item in
             
-            Tab("Custom Responses Content", systemImage: "list.bullet") {
-                
-                ResponseSettingView()
-                    .environmentObject(self.store)
-            }
+            Label(item.title, systemImage: item.icon)
+                .tag(item)
         }
+        .listStyle(.sidebar)
+        .toolbar(removing: .sidebarToggle)
+        .navigationTitle("Settings")
+        .frame(minWidth: 180)
     }
     
-    func tabView() -> some View
+    @ViewBuilder
+    func detailView() -> some View
     {
-        TabView {
+        switch self.selectedSetting {
             
-            GeneralSettingView()
-                .environmentObject(self.store)
-                .tabItem {
-                    Label("General", systemImage: "gear")
-                }
-            
-            ResponseSettingView()
-                .environmentObject(self.store)
-                .tabItem {
-                    Label("Custom Responses Content", systemImage: "list.bullet")
-                }
+            case .general:
+                GeneralSettingView()
+                    .environmentObject(self.store)
+                    .padding(.allEdge(10.0))
+                
+            case .customResponses:
+                ResponseSettingView()
+                    .environmentObject(self.store)
+                    .padding(.allEdge(10.0))
+        }
+    }
+}
+
+// MARK: SettingView.Item
+
+private
+extension SettingView
+{
+    enum Item: Hashable, CaseIterable
+    {
+        case general
+        case customResponses
+        
+        var title: LocalizedStringKey
+        {
+            switch self {
+                
+                case .general:
+                    return "General"
+                
+                case .customResponses:
+                    return "Custom Responses"
+            }
+        }
+        
+        var icon: String
+        {
+            switch self {
+                
+                case .general:
+                    return "gear"
+                
+                case .customResponses:
+                    return "list.bullet"
+            }
         }
     }
 }
@@ -76,4 +108,5 @@ extension SettingView
     
     SettingView()
         .environmentObject(kMonitorStore)
+        .frame(width: 700, height: 400)
 }

@@ -42,32 +42,7 @@ struct ResponseSettingView: View
                 
                 ResponseItemCell.Title()
                 
-                ScrollView {
-                    
-                    LazyVStack(alignment: .leading, spacing: 0.0) {
-                        
-                        ForEach(self.requestItems) {
-                            
-                            item in
-                            
-                            ResponseItemCell(requestItem: item,
-                                             deleteAction: self.deleteItem,
-                                             editAction: self.editItem)
-                        }
-                        
-                        if self.requestItems.count < self.limitCount {
-                            
-                            ForEach(0 ..< (self.limitCount - self.requestItems.count),
-                                    id: \.self) {
-                                
-                                _ in
-                                
-                                ResponseItemCell(requestItem: ResponseItem.empty())
-                            }
-                        }
-                    }
-                }
-                .padding(.bottom, 5.0)
+                self.responseItemListView()
                 
                 self.addButton()
             }
@@ -79,7 +54,7 @@ struct ResponseSettingView: View
                 ResponseItemEditView(responseItem: item, navigationPath: self.$path)
                     .environmentObject(self.store)
             }
-            .navigationTitle("Custom Responses Content")
+            .navigationTitle("Custom Responses")
         }
     }
 }
@@ -88,6 +63,36 @@ struct ResponseSettingView: View
 
 extension ResponseSettingView
 {
+    func responseItemListView() -> some View
+    {
+        ScrollView {
+            
+            LazyVStack(alignment: .leading, spacing: 0.0) {
+                
+                ForEach(self.requestItems) {
+                    
+                    item in
+                    
+                    ResponseItemCell(requestItem: item,
+                                     deleteAction: self.deleteItem,
+                                     editAction: self.editItem)
+                }
+                
+                if self.requestItems.count < self.limitCount {
+                    
+                    ForEach(0 ..< (self.limitCount - self.requestItems.count),
+                            id: \.self) {
+                        
+                        _ in
+                        
+                        ResponseItemCell(requestItem: ResponseItem.empty())
+                    }
+                }
+            }
+        }
+        .padding(.bottom, 5.0)
+    }
+    
     func addButton() -> some View {
         
         HStack {

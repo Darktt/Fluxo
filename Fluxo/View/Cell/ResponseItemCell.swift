@@ -74,14 +74,15 @@ struct ResponseItemCell: View
                 .fill(Color.secondary.opacity(0.5))
                 .frame(height: 1.0)
         }
+        .contentShape(Rectangle())
         .onHover{
             
             self.isHovered = $0
         }
+        .animation(.easeInOut(duration: 0.25), value: self.isHovered)
         .frame(height: 30.0)
         .padding(.top, 10.0)
         .padding(.bottom, 0.0)
-        .animation(.easeInOut(duration: 0.25), value: self.isHovered)
     }
     
     // MARK: - Methods -
@@ -125,6 +126,7 @@ extension ResponseItemCell
             .background(.gray.opacity(0.3))
             .clipShape(.capsule)
         }
+        .frame(height: 20.0)
     }
 }
 
@@ -160,24 +162,29 @@ extension ResponseItemCell
 #Preview("Title") {
     
     ResponseItemCell.Title()
+        .frame(height: 60.0)
 }
 
 #Preview("Get") {
     
     ResponseItemCell(requestItem: ResponseItem.defaultItem())
+        .frame(height: 60.0)
 }
 
 #Preview("Post") {
     
     ResponseItemCell(requestItem: ResponseItem.defaultItem(with: .post))
+        .frame(height: 60.0)
 }
 
 #Preview("Others") {
     
     ResponseItemCell(requestItem: ResponseItem.defaultItem(with: .put))
+        .frame(height: 60.0)
 }
 
 #Preview("Empty Path") {
     
     ResponseItemCell(requestItem: ResponseItem.empty())
+        .frame(height: 60.0)
 }
