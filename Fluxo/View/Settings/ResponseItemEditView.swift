@@ -61,9 +61,11 @@ struct ResponseItemEditView: View
                 self.pathAndMethodSection()
                 
                 self.contentSection()
-                
-                self.buttonSection()
             }
+            
+            Spacer(minLength: 10.0)
+            
+            self.buttonSection()
         }
         .padding(.allEdge(10.0))
         .navigationBarBackButtonHidden()
@@ -97,6 +99,7 @@ extension ResponseItemEditView
                     
                     self.path = newValue
                 }
+                .disableAutocorrection(true)
             
             Picker("Method: ", selection: self.$method) {
                 
@@ -121,36 +124,32 @@ extension ResponseItemEditView
             Text("Content:")
         }
         .padding(.leading, -62.0)
+        .disableAutocorrection(true)
     }
     
     func buttonSection() -> some View
     {
-        Section {
+        HStack {
             
-            HStack {
+            Button("Cancel") {
                 
-                Button("Cancel") {
-                    
-                    self.navigationPath.removeLast()
-                }
-                
-                Spacer()
-                
-                Button("Save") {
-                    
-                    let newItem = ResponseItem(method: self.method, path: self.path, content: self.content)
-                    
-                    let action = MonitorAction.addResponseItem(newItem)
-                    
-                    self.store.dispatch(action)
-                    self.navigationPath.removeLast()
-                }
-                .disabled(!self.isSaveButtonEnabled)
-                .background(.blue)
-                .clipShape(.rect(cornerRadius: 3.0))
+                self.navigationPath.removeLast()
             }
             
             Spacer()
+            
+            Button("Save") {
+                
+                let newItem = ResponseItem(method: self.method, path: self.path, content: self.content)
+                
+                let action = MonitorAction.addResponseItem(newItem)
+                
+                self.store.dispatch(action)
+                self.navigationPath.removeLast()
+            }
+            .disabled(!self.isSaveButtonEnabled)
+            .background(Color.accentColor)
+            .clipShape(.rect(cornerRadius: 3.0))
         }
     }
 }
