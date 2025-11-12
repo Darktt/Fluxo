@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: macos-15
+    runs-on: macos-last
 
     steps:
       - uses: actions/checkout@v2
@@ -13,13 +13,13 @@ jobs:
         uses: fwal/setup-swift@v1
 
       - name: Select Xcode
-        run: sudo xcode-select -switch /Applications/Xcode_16.4.app && /usr/bin/xcodebuild -version
+        run: sudo xcode-select -switch /Applications/Xcode_26.1.app && /usr/bin/xcodebuild -version
       
       - name: Build for macOS
         uses: mxcl/xcodebuild@v3
         with:
           platform: macOS
-          xcode: ^16.4
+          xcode: ^26.1
           scheme: Fluxo
           action: build
 
@@ -27,6 +27,6 @@ jobs:
         uses: mxcl/xcodebuild@v3
         with:
           platform: macOS
-          xcode: ^16.4
+          xcode: ^26.1
           scheme: Fluxo
           action: test
