@@ -43,8 +43,6 @@ struct GeneralSettingView: View
             
             Section {
                 
-                Spacer(minLength: 20.0)
-                
                 TextField("Monitor Port:",
                           value: self.port,
                           format: .number.grouping(.never),
@@ -55,11 +53,15 @@ struct GeneralSettingView: View
                 
                 Spacer(minLength: 20.0)
             }
+            .padding(.top, 10.0)
             .formStyle(.grouped)
         }
     }
 }
 
 #Preview {
+    
     GeneralSettingView()
+        .environmentObject(kMonitorStore)
+        .frame(width: 400, height: 300)
 }

@@ -19,9 +19,6 @@ struct SettingView: View
         
         ZStack {
             
-            Color(NSColor.windowBackgroundColor)
-                .ignoresSafeArea()
-            
             if #available(macOS 15.0, *) {
                 
                 self.tabViewAfter15()
@@ -31,7 +28,6 @@ struct SettingView: View
             }
         }
         .scenePadding()
-        .edgesIgnoringSafeArea(.top)
     }
 }
 
@@ -52,6 +48,7 @@ extension SettingView
             Tab("Custom Responses Content", systemImage: "list.bullet") {
                 
                 ResponseSettingView()
+                    .environmentObject(self.store)
             }
         }
     }
@@ -67,6 +64,7 @@ extension SettingView
                 }
             
             ResponseSettingView()
+                .environmentObject(self.store)
                 .tabItem {
                     Label("Custom Responses Content", systemImage: "list.bullet")
                 }
@@ -75,5 +73,7 @@ extension SettingView
 }
 
 #Preview {
+    
     SettingView()
+        .environmentObject(kMonitorStore)
 }

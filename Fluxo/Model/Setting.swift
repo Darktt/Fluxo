@@ -17,7 +17,7 @@ struct Setting
     var port: UInt16
     
     public private(set)
-    var requestItems: Array<RequestItem> = [] {
+    var requestItems: Array<ResponseItem> = [] {
         
         willSet {
             
@@ -49,7 +49,7 @@ struct Setting
             
             let items = try self.requestItemDates.map {
                 
-                try RequestItem.decode(with: $0)
+                try ResponseItem.decode(with: $0)
             }
             
             self.requestItems = items
@@ -60,7 +60,7 @@ struct Setting
     }
     
     public mutating
-    func add(_ item: RequestItem)
+    func add(_ item: ResponseItem)
     {
         self.requestItems.append(item)
     }

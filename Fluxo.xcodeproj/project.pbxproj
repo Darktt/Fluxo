@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		557F4DC32EC41D3600B607C1 /* SwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F4DC22EC41D3600B607C1 /* SwiftExtensions.framework */; };
+		557F4DC42EC41D3600B607C1 /* SwiftExtensions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 557F4DC22EC41D3600B607C1 /* SwiftExtensions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F2F7F6982E6E6E19000881A5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F2F7F6972E6E6E19000881A5 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -20,7 +22,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		557F4DC52EC41D3600B607C1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				557F4DC42EC41D3600B607C1 /* SwiftExtensions.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		557F4DC22EC41D3600B607C1 /* SwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftExtensions.framework; sourceTree = "<group>"; };
 		F27BDBA52E544D5400036841 /* Fluxo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fluxo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F2AA992E56A44000FA9464 /* FluxoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluxoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F2AB022E56AB5000FA9464 /* Fluxo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fluxo.xctestplan; sourceTree = "<group>"; };
@@ -58,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				557F4DC32EC41D3600B607C1 /* SwiftExtensions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		557F4A182EC41C8900B607C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				557F4DC22EC41D3600B607C1 /* SwiftExtensions.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F27BDB9C2E544D5400036841 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +104,7 @@
 				F2F7F6972E6E6E19000881A5 /* README.md */,
 				F27BDBA72E544D5400036841 /* Fluxo */,
 				F2F2AA9A2E56A44000FA9464 /* FluxoTests */,
+				557F4A182EC41C8900B607C1 /* Frameworks */,
 				F27BDBA62E544D5400036841 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +128,7 @@
 				F27BDBA12E544D5400036841 /* Sources */,
 				F27BDBA22E544D5400036841 /* Frameworks */,
 				F27BDBA32E544D5400036841 /* Resources */,
+				557F4DC52EC41D3600B607C1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -377,6 +405,10 @@
 				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readwrite;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Fluxo;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -421,6 +453,10 @@
 				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readwrite;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Fluxo;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";

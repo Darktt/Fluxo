@@ -182,20 +182,21 @@ extension HTTPConnection
     {
         guard let method: HTTPMethod = request.requestMethod else {
             
-            let response = HTTPMessage.response(statusCode: .badRequest, htmlString: "<h1>Bad Request</h1>")
+            let response = self.badRequestResponse()
             
             return response
         }
         
-        let response = HTTPMessage.response(statusCode: .ok, htmlString: "<h1>Hello world!</h1><br/><p>Method: \(method.rawValue)</p>")
+        let responseItem = ResponseItem.defaultItem(with: method)
+        let response = HTTPMessage.response(statusCode: .ok, htmlString: responseItem.content)
         
         return response
     }
     
     func badRequestResponse() -> HTTPMessage
     {
-        let string = "<h1>400 Bad Request</h1><p>Invalid HTTP request format</p>"
-        let response = HTTPMessage.response(statusCode: .badRequest, htmlString: string)
+        let requestItem = ResponseItem.badRequest()
+        let response = HTTPMessage.response(statusCode: .badRequest, htmlString: requestItem.content)
         
         return response
     }
