@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftExtensions
 
 public
 struct SettingView: View

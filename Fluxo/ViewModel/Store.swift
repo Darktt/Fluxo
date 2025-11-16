@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import Combine
 
 public
 typealias Processor<Action> = (Action) -> Void

@@ -3,54 +3,49 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		557F4DC32EC41D3600B607C1 /* SwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F4DC22EC41D3600B607C1 /* SwiftExtensions.framework */; };
-		557F4DC42EC41D3600B607C1 /* SwiftExtensions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 557F4DC22EC41D3600B607C1 /* SwiftExtensions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F2F7F6982E6E6E19000881A5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F2F7F6972E6E6E19000881A5 /* README.md */; };
+		554402622EC9761C00CFC1F6 /* SwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554402612EC9761C00CFC1F6 /* SwiftExtensions.framework */; };
+		554402632EC9761C00CFC1F6 /* SwiftExtensions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 554402612EC9761C00CFC1F6 /* SwiftExtensions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F2F2AA9D2E56A44000FA9464 /* PBXContainerItemProxy */ = {
+		5509D05F2EC9755D0087387B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F27BDB9D2E544D5400036841 /* Project object */;
+			containerPortal = 5509D0492EC9755C0087387B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F27BDBA42E544D5400036841;
-			remoteInfo = HttpRequestMonitor;
+			remoteGlobalIDString = 5509D0502EC9755C0087387B;
+			remoteInfo = Fluxo;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		557F4DC52EC41D3600B607C1 /* Embed Frameworks */ = {
+		554402642EC9761C00CFC1F6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolder = Frameworks;
 			files = (
-				557F4DC42EC41D3600B607C1 /* SwiftExtensions.framework in Embed Frameworks */,
+				554402632EC9761C00CFC1F6 /* SwiftExtensions.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		557F4DC22EC41D3600B607C1 /* SwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftExtensions.framework; sourceTree = "<group>"; };
-		F27BDBA52E544D5400036841 /* Fluxo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fluxo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2F2AA992E56A44000FA9464 /* FluxoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluxoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2F2AB022E56AB5000FA9464 /* Fluxo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fluxo.xctestplan; sourceTree = "<group>"; };
-		F2F7F6972E6E6E19000881A5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5509D0512EC9755C0087387B /* Fluxo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fluxo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5509D05E2EC9755D0087387B /* FluxoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluxoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		554402612EC9761C00CFC1F6 /* SwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftExtensions.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		F27BDBA72E544D5400036841 /* Fluxo */ = {
+		5509D0532EC9755C0087387B /* Fluxo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Fluxo;
 			sourceTree = "<group>";
 		};
-		F2F2AA9A2E56A44000FA9464 /* FluxoTests */ = {
+		5509D0612EC9755D0087387B /* FluxoTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = FluxoTests;
 			sourceTree = "<group>";
@@ -58,194 +53,169 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F27BDBA22E544D5400036841 /* Frameworks */ = {
+		5509D04E2EC9755C0087387B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				557F4DC32EC41D3600B607C1 /* SwiftExtensions.framework in Frameworks */,
+				554402622EC9761C00CFC1F6 /* SwiftExtensions.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F2F2AA962E56A44000FA9464 /* Frameworks */ = {
+		5509D05B2EC9755D0087387B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		557F4A182EC41C8900B607C1 /* Frameworks */ = {
+		5509D0482EC9755C0087387B = {
 			isa = PBXGroup;
 			children = (
-				557F4DC22EC41D3600B607C1 /* SwiftExtensions.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F27BDB9C2E544D5400036841 = {
-			isa = PBXGroup;
-			children = (
-				F2F2AB022E56AB5000FA9464 /* Fluxo.xctestplan */,
-				F2F7F6972E6E6E19000881A5 /* README.md */,
-				F27BDBA72E544D5400036841 /* Fluxo */,
-				F2F2AA9A2E56A44000FA9464 /* FluxoTests */,
-				557F4A182EC41C8900B607C1 /* Frameworks */,
-				F27BDBA62E544D5400036841 /* Products */,
+				5509D0532EC9755C0087387B /* Fluxo */,
+				5509D0612EC9755D0087387B /* FluxoTests */,
+				554402602EC9761C00CFC1F6 /* Frameworks */,
+				5509D0522EC9755C0087387B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F27BDBA62E544D5400036841 /* Products */ = {
+		5509D0522EC9755C0087387B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F27BDBA52E544D5400036841 /* Fluxo.app */,
-				F2F2AA992E56A44000FA9464 /* FluxoTests.xctest */,
+				5509D0512EC9755C0087387B /* Fluxo.app */,
+				5509D05E2EC9755D0087387B /* FluxoTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		554402602EC9761C00CFC1F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				554402612EC9761C00CFC1F6 /* SwiftExtensions.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F27BDBA42E544D5400036841 /* Fluxo */ = {
+		5509D0502EC9755C0087387B /* Fluxo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F27BDBB12E544D5600036841 /* Build configuration list for PBXNativeTarget "Fluxo" */;
+			buildConfigurationList = 5509D0722EC9755D0087387B /* Build configuration list for PBXNativeTarget "Fluxo" */;
 			buildPhases = (
-				F27BDBA12E544D5400036841 /* Sources */,
-				F27BDBA22E544D5400036841 /* Frameworks */,
-				F27BDBA32E544D5400036841 /* Resources */,
-				557F4DC52EC41D3600B607C1 /* Embed Frameworks */,
+				5509D04D2EC9755C0087387B /* Sources */,
+				5509D04E2EC9755C0087387B /* Frameworks */,
+				5509D04F2EC9755C0087387B /* Resources */,
+				554402642EC9761C00CFC1F6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			fileSystemSynchronizedGroups = (
-				F27BDBA72E544D5400036841 /* Fluxo */,
+				5509D0532EC9755C0087387B /* Fluxo */,
 			);
 			name = Fluxo;
-			packageProductDependencies = (
-			);
-			productName = HttpRequestMonitor;
-			productReference = F27BDBA52E544D5400036841 /* Fluxo.app */;
+			productName = Fluxo;
+			productReference = 5509D0512EC9755C0087387B /* Fluxo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F2F2AA982E56A44000FA9464 /* FluxoTests */ = {
+		5509D05D2EC9755D0087387B /* FluxoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F2F2AA9F2E56A44000FA9464 /* Build configuration list for PBXNativeTarget "FluxoTests" */;
+			buildConfigurationList = 5509D0752EC9755D0087387B /* Build configuration list for PBXNativeTarget "FluxoTests" */;
 			buildPhases = (
-				F2F2AA952E56A44000FA9464 /* Sources */,
-				F2F2AA962E56A44000FA9464 /* Frameworks */,
-				F2F2AA972E56A44000FA9464 /* Resources */,
+				5509D05A2EC9755D0087387B /* Sources */,
+				5509D05B2EC9755D0087387B /* Frameworks */,
+				5509D05C2EC9755D0087387B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F2F2AA9E2E56A44000FA9464 /* PBXTargetDependency */,
+				5509D0602EC9755D0087387B /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				F2F2AA9A2E56A44000FA9464 /* FluxoTests */,
+				5509D0612EC9755D0087387B /* FluxoTests */,
 			);
 			name = FluxoTests;
-			packageProductDependencies = (
-			);
-			productName = HttpRequestMonitorTests;
-			productReference = F2F2AA992E56A44000FA9464 /* FluxoTests.xctest */;
+			productName = FluxoTests;
+			productReference = 5509D05E2EC9755D0087387B /* FluxoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F27BDB9D2E544D5400036841 /* Project object */ = {
+		5509D0492EC9755C0087387B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1640;
-				LastUpgradeCheck = 2600;
+				LastSwiftUpdateCheck = 2610;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
-					F27BDBA42E544D5400036841 = {
-						CreatedOnToolsVersion = 16.4;
+					5509D0502EC9755C0087387B = {
+						CreatedOnToolsVersion = 26.1;
 					};
-					F2F2AA982E56A44000FA9464 = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = F27BDBA42E544D5400036841;
+					5509D05D2EC9755D0087387B = {
+						CreatedOnToolsVersion = 26.1;
+						TestTargetID = 5509D0502EC9755C0087387B;
 					};
 				};
 			};
-			buildConfigurationList = F27BDBA02E544D5400036841 /* Build configuration list for PBXProject "Fluxo" */;
+			buildConfigurationList = 5509D04C2EC9755C0087387B /* Build configuration list for PBXProject "Fluxo" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
-				"zh-Hant",
 			);
-			mainGroup = F27BDB9C2E544D5400036841;
+			mainGroup = 5509D0482EC9755C0087387B;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-			);
-			preferredProjectObjectVersion = 77;
-			productRefGroup = F27BDBA62E544D5400036841 /* Products */;
+			preferredProjectObjectVersion = 90;
+			productRefGroup = 5509D0522EC9755C0087387B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F27BDBA42E544D5400036841 /* Fluxo */,
-				F2F2AA982E56A44000FA9464 /* FluxoTests */,
+				5509D0502EC9755C0087387B /* Fluxo */,
+				5509D05D2EC9755D0087387B /* FluxoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F27BDBA32E544D5400036841 /* Resources */ = {
+		5509D04F2EC9755C0087387B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				F2F7F6982E6E6E19000881A5 /* README.md in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F2F2AA972E56A44000FA9464 /* Resources */ = {
+		5509D05C2EC9755D0087387B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F27BDBA12E544D5400036841 /* Sources */ = {
+		5509D04D2EC9755C0087387B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F2F2AA952E56A44000FA9464 /* Sources */ = {
+		5509D05A2EC9755D0087387B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F2F2AA9E2E56A44000FA9464 /* PBXTargetDependency */ = {
+		5509D0602EC9755D0087387B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F27BDBA42E544D5400036841 /* Fluxo */;
-			targetProxy = F2F2AA9D2E56A44000FA9464 /* PBXContainerItemProxy */;
+			target = 5509D0502EC9755C0087387B /* Fluxo */;
+			targetProxy = 5509D05F2EC9755D0087387B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		F27BDBAF2E544D5600036841 /* Debug */ = {
+		5509D0702EC9755D0087387B /* Debug configuration for PBXProject "Fluxo" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -275,7 +245,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -295,24 +264,21 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		F27BDBB02E544D5600036841 /* Release */ = {
+		5509D0712EC9755D0087387B /* Release configuration for PBXProject "Fluxo" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -342,7 +308,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -356,29 +321,22 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
-		F27BDBB22E544D5600036841 /* Debug */ = {
+		5509D0732EC9755D0087387B /* Debug configuration for PBXNativeTarget "Fluxo" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = Fluxo/Fluxo.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -397,36 +355,33 @@
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Fluxo;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Darktt. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.1.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.myCompany.Fluxo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		F27BDBB32E544D5600036841 /* Release */ = {
+		5509D0742EC9755D0087387B /* Release configuration for PBXNativeTarget "Fluxo" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = Fluxo/Fluxo.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -445,62 +400,70 @@
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Fluxo;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Darktt. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.1.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.myCompany.Fluxo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		F2F2AAA02E56A44000FA9464 /* Debug */ = {
+		5509D0762EC9755D0087387B /* Debug configuration for PBXNativeTarget "FluxoTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Darktt. All rights reserved.";
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.myCompany.HttpRequestMonitorTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myCompany.FluxoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fluxo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fluxo";
 			};
 			name = Debug;
 		};
-		F2F2AAA12E56A44000FA9464 /* Release */ = {
+		5509D0772EC9755D0087387B /* Release configuration for PBXNativeTarget "FluxoTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Darktt. All rights reserved.";
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.myCompany.HttpRequestMonitorTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myCompany.FluxoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fluxo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fluxo";
 			};
@@ -509,34 +472,31 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F27BDBA02E544D5400036841 /* Build configuration list for PBXProject "Fluxo" */ = {
+		5509D04C2EC9755C0087387B /* Build configuration list for PBXProject "Fluxo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F27BDBAF2E544D5600036841 /* Debug */,
-				F27BDBB02E544D5600036841 /* Release */,
+				5509D0702EC9755D0087387B /* Debug configuration for PBXProject "Fluxo" */,
+				5509D0712EC9755D0087387B /* Release configuration for PBXProject "Fluxo" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F27BDBB12E544D5600036841 /* Build configuration list for PBXNativeTarget "Fluxo" */ = {
+		5509D0722EC9755D0087387B /* Build configuration list for PBXNativeTarget "Fluxo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F27BDBB22E544D5600036841 /* Debug */,
-				F27BDBB32E544D5600036841 /* Release */,
+				5509D0732EC9755D0087387B /* Debug configuration for PBXNativeTarget "Fluxo" */,
+				5509D0742EC9755D0087387B /* Release configuration for PBXNativeTarget "Fluxo" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F2F2AA9F2E56A44000FA9464 /* Build configuration list for PBXNativeTarget "FluxoTests" */ = {
+		5509D0752EC9755D0087387B /* Build configuration list for PBXNativeTarget "FluxoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F2F2AAA02E56A44000FA9464 /* Debug */,
-				F2F2AAA12E56A44000FA9464 /* Release */,
+				5509D0762EC9755D0087387B /* Debug configuration for PBXNativeTarget "FluxoTests" */,
+				5509D0772EC9755D0087387B /* Release configuration for PBXNativeTarget "FluxoTests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F27BDB9D2E544D5400036841 /* Project object */;
+	rootObject = 5509D0492EC9755C0087387B /* Project object */;
 }
