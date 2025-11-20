@@ -5,6 +5,9 @@
 
 一個專為 macOS 設計的 HTTP 請求監控工具，協助開發者即時監控和分析 API 請求數據。
 
+首頁： [https://www.fluxoapp.org](https://www.fluxoapp.org)
+[![app preview](/image/app_preview.png)]()
+
 ## 🌟 功能特色
 
 - **🚀 即時監控**: 即時攔截並顯示所有 HTTP 請求
