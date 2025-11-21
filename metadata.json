@@ -1,0 +1,5 @@
+{
+  "name": "Fluxo - Network Monitor",
+  "description": "A static landing page for Fluxo, a macOS network monitoring utility.",
+  "requestFramePermissions": []
+}
