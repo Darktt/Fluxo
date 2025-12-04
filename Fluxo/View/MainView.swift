@@ -20,6 +20,9 @@ struct MainView: View
         self.store.state
     }
     
+    @Environment(\.openSettings)
+    private var openSettings
+    
     @State
     private
     var isShowingErrorAlert: Bool = false
@@ -51,6 +54,18 @@ struct MainView: View
             Button("OK", role: .cancel) {
                 
                 self.isShowingErrorAlert = false
+                let action = MonitorAction.stopMonitor
+                
+                self.store.dispatch(action)
+            }
+            
+            if let error = self.state.error,
+                error.code == MonitorErrorCode.portAlreadyUsed.rawValue {
+                
+                Button("Open Settings") {
+                    
+                    self.openSettings()
+                }
             }
         } message: {
             
