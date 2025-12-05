@@ -26,6 +26,7 @@ let MonitorMiddleware: Middleware<MonitorState, MonitorAction> = {
                 let newAction = startMonitorAction(portNumber: port)
                 
                 next(newAction)
+                return
             }
             
             if case .stopMonitor = action {
@@ -34,6 +35,7 @@ let MonitorMiddleware: Middleware<MonitorState, MonitorAction> = {
                 let newAction = MonitorAction.stopMonitorResponse
                 
                 next(newAction)
+                return
             }
             
             next(action)

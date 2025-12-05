@@ -53,10 +53,7 @@ struct MainView: View
             
             Button("OK", role: .cancel) {
                 
-                self.isShowingErrorAlert = false
-                let action = MonitorAction.stopMonitor
-                
-                self.store.dispatch(action)
+                self.handleErrorAction()
             }
             
             if let error = self.state.error,
@@ -64,12 +61,21 @@ struct MainView: View
                 
                 Button("Open Settings") {
                     
-                    self.openSettings()
+                    self.handleErrorAction() {
+                        
+                        self.openSettings()
+                    }
                 }
             }
         } message: {
             
-            Text(self.state.error?.message ?? "Unknown Error")
+            if let message = self.state.error?.message {
+                
+                Text(LocalizedStringKey(message))
+            } else {
+                
+                Text("An unknown error occurred.")
+            }
         }
         .onChange(of: self.state.error != nil) {
             
@@ -147,6 +153,15 @@ extension MainView
         } ?? ""
         
         return "http://localhost:\(portNumber)" + ipAddress
+    }
+    
+    func handleErrorAction(otherAction: (() -> Void)? = nil)
+    {
+        self.isShowingErrorAlert = false
+        let action = MonitorAction.stopMonitor
+        
+        self.store.dispatch(action)
+        otherAction?()
     }
 }
 

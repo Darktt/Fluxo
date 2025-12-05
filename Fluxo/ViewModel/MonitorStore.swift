@@ -73,6 +73,7 @@ typealias MonitorStore = Store<MonitorState, MonitorAction>
 let kMonitorStore = MonitorStore(initialState: MonitorState(),
                                       reducer: kReducer,
                                   middlewares: [
-                                    MonitorMiddleware
+                                    MonitorMiddleware,
+                                    ErrorMiddleware
                                   ]
                                 )
