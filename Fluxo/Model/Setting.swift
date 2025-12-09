@@ -76,4 +76,16 @@ struct Setting
     {
         self.requestItems.remove(object: item)
     }
+    
+    public
+    func item(with path: String, method: HTTPMethod) -> ResponseItem?
+    {
+        self.requestItems.first {
+            
+            var result = $0.path == path
+            result &= $0.method == method
+            
+            return result
+        }
+    }
 }

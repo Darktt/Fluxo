@@ -64,28 +64,28 @@ extension HTTPConnection
     func connectionStateChange(to state: NWConnection.State)
     {
         switch state {
-        
-        case .setup:
-            print("ℹ️ Connection: \(self.connection) in setup.")
-        
-        case .waiting(let error):
-            print("ℹ️ Connection: \(self.connection) is waiting with error: \(error)")
-            
-        case .preparing:
-            print("ℹ️ Connection: \(self.connection) is preparing.")
-            
-        case .ready:
-            print("ℹ️ Connection: \(self.connection) is ready.")
-            
-        case .failed(let error):
-            print("ℹ️ Connection: \(self.connection), failed to start with error: \(error)")
-            
-        case .cancelled:
-            print("ℹ️ Connection: \(self.connection) is canceled.")
-            
-        @unknown
-        default:
-            fatalError()
+                
+            case .setup:
+                print("ℹ️ Connection: \(self.connection) in setup.")
+                
+            case .waiting(let error):
+                print("ℹ️ Connection: \(self.connection) is waiting with error: \(error)")
+                
+            case .preparing:
+                print("ℹ️ Connection: \(self.connection) is preparing.")
+                
+            case .ready:
+                print("ℹ️ Connection: \(self.connection) is ready.")
+                
+            case .failed(let error):
+                print("ℹ️ Connection: \(self.connection), failed to start with error: \(error)")
+                
+            case .cancelled:
+                print("ℹ️ Connection: \(self.connection) is canceled.")
+                
+            @unknown
+            default:
+                fatalError()
         }
     }
     
@@ -156,8 +156,9 @@ extension HTTPConnection
                 
                 self.receiveRequestHandler.unwrapped({ $0(request) })
                 
-                let response = self.makeResponse(fromRequest: request)
-                self.sendResponse(response) {
+                Task {
+                    let response = await self.makeResponse(fromRequest: request)
+                    await self.sendResponse(response)
                     
                     print("ℹ️ Connection completed, closing")
                     self.cancel()
@@ -179,19 +180,36 @@ extension HTTPConnection
         return isValid
     }
     
-    func makeResponse(fromRequest request: HTTPMessage) -> HTTPMessage
+    func makeResponse(fromRequest request: HTTPMessage) async -> HTTPMessage
     {
-        guard let method: HTTPMethod = request.requestMethod else {
-            
-            let response = self.badRequestResponse()
-            
-            return response
-        }
-        
-        let responseItem = ResponseItem.defaultItem(with: method)
+        let responseItem = await self.responseItem(for: request)
         let response = HTTPMessage.response(statusCode: .ok, htmlString: responseItem.content)
         
         return response
+    }
+    
+    func responseItem(for request: HTTPMessage) async -> ResponseItem
+    {
+        var pathComponents: Array<String> = request.requestURL?.pathComponents ?? []
+        pathComponents.removeAll(where: { $0 == "/" })
+        let path: String = pathComponents.joined(separator: "/")
+        
+        guard let method = request.requestMethod else {
+            
+            return ResponseItem.badRequest()
+        }
+        
+        let mainActorBody: @MainActor () -> ResponseItem? = {
+            
+            kMonitorStore.state.setting.item(with: path, method: method)
+        }
+        
+        if let item = await MainActor.run(body: mainActorBody) {
+            
+            return item
+        }
+        
+        return ResponseItem.defaultItem(with: method)
     }
     
     func badRequestResponse() -> HTTPMessage
@@ -200,6 +218,21 @@ extension HTTPConnection
         let response = HTTPMessage.response(statusCode: .badRequest, htmlString: requestItem.content)
         
         return response
+    }
+    
+    func sendResponse(_ response: HTTPMessage) async
+    {
+        await withCheckedContinuation {
+            
+            continuation in
+            
+            let completion = {
+                
+                continuation.resume()
+            }
+            
+            self.sendResponse(response, completion: completion)
+        }
     }
     
     func sendResponse(_ response: HTTPMessage, completion: @escaping () -> Void)

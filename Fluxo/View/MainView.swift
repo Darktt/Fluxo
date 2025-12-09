@@ -20,6 +20,10 @@ struct MainView: View
         self.store.state
     }
     
+    @AppStorage("selectedSetting")
+    private
+    var settingTab: SettingView.Item = .general
+    
     @Environment(\.openSettings)
     private var openSettings
     
@@ -63,6 +67,7 @@ struct MainView: View
                     
                     self.handleErrorAction() {
                         
+                        self.settingTab = .general
                         self.openSettings()
                     }
                 }

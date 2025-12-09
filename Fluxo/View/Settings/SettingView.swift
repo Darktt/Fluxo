@@ -15,7 +15,7 @@ struct SettingView: View
     private
     var store: MonitorStore
     
-    @State
+    @AppStorage("selectedSetting")
     private
     var selectedSetting: Item = .general
     
@@ -71,12 +71,12 @@ extension SettingView
 
 // MARK: SettingView.Item
 
-private
+public
 extension SettingView
 {
-    enum Item: Hashable, CaseIterable
+    enum Item: Int, Hashable, CaseIterable
     {
-        case general
+        case general = 0
         case customResponses
         
         var title: LocalizedStringKey
