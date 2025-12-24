@@ -24,6 +24,11 @@ struct MainView: View
     private
     var settingTab: SettingView.Item = .general
     
+    
+    @Environment(\.openWindow)
+    private
+    var openWindow
+    
     @Environment(\.openSettings)
     private var openSettings
     
@@ -90,6 +95,21 @@ struct MainView: View
         }
         .edgesIgnoringSafeArea(.top)
         .animation(.easeInOut(duration: 0.3), value: self.state.httpStatus)
+        .onAppear {
+            
+            self.checkChangeLog()
+        }
+        .onChange(of: self.state.changeLog?.isEmpty) {
+            
+            _, newValue in
+            
+            guard newValue == false else {
+                
+                return
+            }
+            
+            self.openWindow(id: kChangeLog)
+        }
     }
 }
 
@@ -167,6 +187,24 @@ extension MainView
         
         self.store.dispatch(action)
         otherAction?()
+    }
+    
+    func checkChangeLog()
+    {
+        let isNeedsShow = self.state.setting.isNeedsToShowChangeLog
+        
+        guard isNeedsShow else {
+            
+            return
+        }
+        
+        let version: String = self.state.setting.version;
+        let isChinese: Bool = (Locale.current.language.languageCode == .chinese)
+        let language: String = (isChinese) ? "tw" : "en"
+        let request = ChangeLogRequest(version: version, language: language)
+        let action = MonitorAction.fetchChangeLog(request)
+        
+        self.store.dispatch(action)
     }
 }
 

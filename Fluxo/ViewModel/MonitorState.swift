@@ -54,6 +54,9 @@ struct MonitorState
     var selectedRequest: Request?
     
     public
+    var changeLog: String?
+    
+    public
     var setting: Setting = Setting()
     
     // MARK: - Methods -

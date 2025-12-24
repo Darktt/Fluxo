@@ -34,9 +34,22 @@ struct Setting
         }
     }
     
+    public
+    var isNeedsToShowChangeLog: Bool {
+        
+        return self.watchedVersion != self.version;
+    }
+    
+    public
+    let version: String = "1.0.1"
+    
     @UserDefaultsWrapper("requestItemDates", defaultValue: [])
     private
     var requestItemDates: Array<Data>
+    
+    @UserDefaultsWrapper("watchedVersion", defaultValue: "1.0.0")
+    private
+    var watchedVersion: String
     
     // MARK: - Methods -
     // MARK: Initial Method
@@ -87,5 +100,11 @@ struct Setting
             
             return result
         }
+    }
+    
+    public mutating
+    func setWatchedVersion(version: String)
+    {
+        self.watchedVersion = version
     }
 }

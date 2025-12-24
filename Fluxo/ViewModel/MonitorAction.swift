@@ -33,4 +33,12 @@ enum MonitorAction
     case addResponseItem(ResponseItem)
     
     case deleteResponseItem(ResponseItem)
+    
+    case fetchChangeLog(ChangeLogRequest)
+    
+    case fetchChangeLogResponse(String)
+    
+    case fetchApiError(any Error)
+    
+    case setWatchedVersion(String)
 }

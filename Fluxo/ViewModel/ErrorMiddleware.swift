@@ -42,6 +42,16 @@ let ErrorMiddleware: Middleware<MonitorState, MonitorAction> = {
                 }
             }
             
+            if case let .fetchApiError(error) = action,
+               let error = error as? CustomNSError {
+                
+                let error = (error.errorCode, error.localizedDescription)
+                let newAction = MonitorAction.error(error)
+                
+                next(newAction)
+                return
+            }
+            
             next(action)
         }
     }

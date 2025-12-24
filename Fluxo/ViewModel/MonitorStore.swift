@@ -63,6 +63,16 @@ func kReducer(state: MonitorState, action: MonitorAction) -> MonitorState {
         newState.setting.remove(item)
     }
     
+    if case let .fetchChangeLogResponse(changeLog) = action {
+        
+        newState.changeLog = changeLog
+    }
+    
+    if case let .setWatchedVersion(version) = action {
+        
+        newState.setting.setWatchedVersion(version: version)
+    }
+    
     return newState
 }
 
@@ -74,6 +84,7 @@ let kMonitorStore = MonitorStore(initialState: MonitorState(),
                                       reducer: kReducer,
                                   middlewares: [
                                     MonitorMiddleware,
+                                    APIMiddleware,
                                     ErrorMiddleware
                                   ]
                                 )

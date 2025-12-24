@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		554402622EC9761C00CFC1F6 /* SwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554402612EC9761C00CFC1F6 /* SwiftExtensions.framework */; };
 		554402632EC9761C00CFC1F6 /* SwiftExtensions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 554402612EC9761C00CFC1F6 /* SwiftExtensions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F257EFF32EFBDB82001BEB53 /* MarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = F257EFF22EFBDB82001BEB53 /* MarkdownView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		5509D04E2EC9755C0087387B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				F257EFF32EFBDB82001BEB53 /* MarkdownView in Frameworks */,
 				554402622EC9761C00CFC1F6 /* SwiftExtensions.framework in Frameworks */,
 			);
 		};
@@ -112,6 +114,9 @@
 				5509D0532EC9755C0087387B /* Fluxo */,
 			);
 			name = Fluxo;
+			packageProductDependencies = (
+				F257EFF22EFBDB82001BEB53 /* MarkdownView */,
+			);
 			productName = Fluxo;
 			productReference = 5509D0512EC9755C0087387B /* Fluxo.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +170,9 @@
 			);
 			mainGroup = 5509D0482EC9755C0087387B;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F257EFF12EFBDB82001BEB53 /* XCRemoteSwiftPackageReference "MarkdownView" */,
+			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 5509D0522EC9755C0087387B /* Products */;
 			projectDirPath = "";
@@ -497,6 +505,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F257EFF12EFBDB82001BEB53 /* XCRemoteSwiftPackageReference "MarkdownView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LiYanan2004/MarkdownView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F257EFF22EFBDB82001BEB53 /* MarkdownView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F257EFF12EFBDB82001BEB53 /* XCRemoteSwiftPackageReference "MarkdownView" */;
+			productName = MarkdownView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5509D0492EC9755C0087387B /* Project object */;
 }

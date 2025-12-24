@@ -47,6 +47,15 @@ struct FluxoApp: App
             ToolsCommands(store: kMonitorStore)
         }
         
+        WindowGroup("New Version", id: kChangeLog) {
+            
+            ChangeLog()
+                .environmentObject(kMonitorStore)
+                .frame(width: 600.0, height: 200.0)
+                .disableFullScreen()
+        }
+        .windowResizability(.contentSize)
+        
         Settings {
             
             SettingView()
