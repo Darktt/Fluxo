@@ -58,6 +58,7 @@ struct Setting
     init()
     {
         self.requestItems = []
+//        self.watchedVersion = ""
         
         do {
             

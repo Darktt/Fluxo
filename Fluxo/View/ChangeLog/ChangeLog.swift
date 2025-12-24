@@ -34,7 +34,7 @@ struct ChangeLog: View
             
             MarkdownView(self.log)
         }
-        .padding([.horizontal], 10.0)
+        .padding([.horizontal, .bottom], 20.0)
         .onAppear(perform: self.isWatched)
     }
 }

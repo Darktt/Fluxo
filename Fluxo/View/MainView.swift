@@ -95,10 +95,7 @@ struct MainView: View
         }
         .edgesIgnoringSafeArea(.top)
         .animation(.easeInOut(duration: 0.3), value: self.state.httpStatus)
-        .onAppear {
-            
-            self.checkChangeLog()
-        }
+        .onAppear(perform: self.checkChangeLog)
         .onChange(of: self.state.changeLog?.isEmpty) {
             
             _, newValue in

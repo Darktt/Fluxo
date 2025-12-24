@@ -54,6 +54,7 @@ struct FluxoApp: App
                 .frame(width: 600.0, height: 200.0)
                 .disableFullScreen()
         }
+        .windowStyle(.hiddenTitleBar)
         .windowResizability(.contentSize)
         
         Settings {
