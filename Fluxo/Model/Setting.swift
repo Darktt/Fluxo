@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftExtensions
 
 public
 struct Setting

@@ -7,6 +7,14 @@
 
 import Foundation
 
+// MARK: - HeaderCompatible -
+
+public
+protocol HTTPHeaderCompatible
+{
+    func dictionary() -> Dictionary<String, String>
+}
+
 // MARK: - HTTPHeader -
 
 public
@@ -140,6 +148,15 @@ struct HTTPHeader: Identifiable
     }
 }
 
+extension HTTPHeader: HTTPHeaderCompatible
+{
+    public
+    func dictionary() -> Dictionary<String, String>
+    {
+        [self.field: self.value]
+    }
+}
+
 // MARK: - AuthorizationType -
 
 /// The general HTTP authentication framework is used by several authentication schemes. Schemes can differ in security strength and in their availability in client or server software.
@@ -171,24 +188,26 @@ enum AuthorizationType
     /// - SeeAlso: [RFC 7486](https://tools.ietf.org/html/rfc7486), Section 3
     case hoba
     
-    /// See: [RFC 8120](https://tools.ietf.org/html/rfc8120)
+    /// - SeeAlso: [RFC 8120](https://tools.ietf.org/html/rfc8120)
     case mutual
     
-    /// See: [AWS docs](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html)
+    /// Amazon Web Services signature.
+    ///
+    /// - SeeAlso: [AWS docs](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html)
     case awsSignature
     
     /// Define custom authorization type.
-    case custom(String)
+    case custom(_ otherType: String)
 }
 
 extension AuthorizationType: CustomStringConvertible
 {
-    public var description: String {
+    public
+    var description: String {
         
-        let description: String
+        let description: String!
         
         switch self {
-            
         case .basic:
             description = "Basic"
             
@@ -207,33 +226,105 @@ extension AuthorizationType: CustomStringConvertible
         case .awsSignature:
             description = "AWS4-HMAC-SHA256"
             
-        case .custom(let value):
-            description = value
+        case let .custom(otherType):
+            description = otherType
         }
         
         return description
     }
 }
 
+// MARK: - HTTPHeaderContent -
+
 public
-extension Sequence where Element == HTTPHeader
+struct HTTPHeaderContent: HTTPHeaderCompatible
 {
-    // MARK: - Methods -
+    public
+    let headers: Array<any HTTPHeaderCompatible>
     
+    public
     func dictionary() -> Dictionary<String, String>
     {
-        let fieldsAndValues: Array<(String, String)> = self.map { ($0.field, $0.value) }
-        let dictionary = Dictionary(fieldsAndValues) { $1 }
-        
-        return dictionary
+        self.headers.dictionary()
     }
 }
 
+// MARK: - HTTPHeaderBuilder -
+
+@resultBuilder
+public
+struct HTTPHeaderBuilder
+{
+    public static
+    func buildBlock(_ header: HTTPHeader) -> Dictionary<String, String>
+    {
+        return [header.field: header.value]
+    }
+    
+    public static
+    func buildBlock(_ headers: any HTTPHeaderCompatible...) -> Dictionary<String, String>
+    {
+        return headers.dictionary()
+    }
+}
+
+// MARK: - HeaderForEachBuilder -
+
+@resultBuilder
+public
+struct HeaderForEachBuilder
+{
+    public static
+    func buildBlock(_ headers: any HTTPHeaderCompatible...) -> some HTTPHeaderCompatible
+    {
+        HTTPHeaderContent(headers: headers)
+    }
+}
+
+// MARK: - HeaderForEach -
+
+public
+struct HeaderForEach<Data, ID, Content> where Data: RandomAccessCollection, ID: Hashable, Content: HTTPHeaderCompatible
+{
+    public
+    let data: Data
+    
+    public
+    let content: (Data.Element) -> Content
+}
+
+public
+extension HeaderForEach where ID == Data.Element
+{
+    init(_ data: Data, @HeaderForEachBuilder content: @escaping (Data.Element) -> Content)
+    {
+        self.data = data
+        self.content = content
+    }
+}
+
+extension HeaderForEach: HTTPHeaderCompatible
+{
+    public
+    func dictionary() -> Dictionary<String, String>
+    {
+        self.data.reduce(into: [:]) {
+            
+            let content: HTTPHeaderCompatible = self.content($1)
+            
+            $0.merge(content.dictionary(), uniquingKeysWith: { (_, new) in new })
+        }
+    }
+}
+
+// MARK: - Other extensions -
+
+public
 extension Array where Element == HTTPHeader
 {
     var description: String {
         
-        let description = self.reduce("") { $0 + $1.field + "=" + $1.value + ";" }
+        let description = self.reduce("", { $0 + $1.field + "=" + $1.value + ";" })
         
         return description
     }
@@ -243,6 +334,26 @@ extension Array where Element == HTTPHeader
         self.sorted {
             
             $0.field < $1.field
+        }
+    }
+    
+    func dictionary() -> Dictionary<String, String>
+    {
+        self.reduce(into: [:]) {
+            
+            $0.merge($1.dictionary(), uniquingKeysWith: { (_, new) in new })
+        }
+    }
+}
+
+extension Array: HTTPHeaderCompatible where Element == any HTTPHeaderCompatible
+{
+    public
+    func dictionary() -> Dictionary<String, String>
+    {
+        self.reduce(into: [:]) {
+            
+            $0.merge($1.dictionary(), uniquingKeysWith: { (_, new) in new })
         }
     }
 }

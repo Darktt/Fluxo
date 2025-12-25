@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftExtensions
 
 @MainActor
 public
@@ -21,7 +20,7 @@ struct ChangeLogRequest: APIRequest
     let apiName: APIName
     
     public
-    let method: SwiftExtensions.HTTPMethod = .get
+    let method: HTTPMethod = .get
     
     public
     let parameters: Dictionary<AnyHashable, Any>? = nil

@@ -6,7 +6,6 @@
 
 import Foundation
 import UniformTypeIdentifiers
-import SwiftExtensions
 
 public
 class HTTPMessage

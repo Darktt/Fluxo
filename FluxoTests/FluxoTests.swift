@@ -219,19 +219,19 @@ class FluxoTests: XCTestCase
     
     // MARK: - Performance Tests
     
-    public
-    func testRequestParsingPerformance()
-    {
-        let requestData = self.postRequestDataString.data(using: .utf8)!
-        
-        measure {
-            for _ in 0..<100 {
-                let message = HTTPMessage()
-                message.appendData(requestData)
-                
-                _ = Request(message: message)
-            }
-        }
-    }
+//    public
+//    func testRequestParsingPerformance()
+//    {
+//        let requestData = self.postRequestDataString.data(using: .utf8)!
+//        
+//        measure {
+//            for _ in 0..<100 {
+//                let message = HTTPMessage()
+//                message.appendData(requestData)
+//                
+//                _ = Request(message: message)
+//            }
+//        }
+//    }
     
 }

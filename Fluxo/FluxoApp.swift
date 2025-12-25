@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftExtensions
 
 @MainActor
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate

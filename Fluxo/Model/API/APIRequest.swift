@@ -7,18 +7,6 @@
 
 import Foundation
 
-#if canImport(SwiftExtensions)
-    
-import SwiftExtensions
-
-#endif
-
-#if canImport(SwiftPlayground)
-
-import SwiftPlayground
-
-#endif
-
 public
 protocol APIRequest
 {
@@ -30,7 +18,7 @@ protocol APIRequest
     
     var apiName: APIName { get }
     
-    var method: SwiftExtensions.HTTPMethod { get }
+    var method: HTTPMethod { get }
     
     var parameters: Dictionary<AnyHashable, Any>? { get }
     

@@ -7,18 +7,6 @@
 
 import Foundation
 
-#if canImport(SwiftExtensions)
-    
-import SwiftExtensions
-
-#endif
-
-#if canImport(SwiftPlayground)
-
-import SwiftPlayground
-
-#endif
-
 @MainActor
 public
 class APIHandler
