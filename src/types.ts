@@ -1,7 +1,7 @@
 export interface FeatureItem {
   title: string;
   description: string;
-  icon: React.ReactNode;
+  icon: string; // Raw SVG string
 }
 
 export interface LinkItem {

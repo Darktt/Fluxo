@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/react,macos
-# Edit at https://www.toptal.com/developers/gitignore?templates=react,macos
+# Created by https://www.toptal.com/developers/gitignore/api/macos,vue
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,vue
 
 ### macOS ###
 # General
@@ -34,22 +34,18 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
-### react ###
-.DS_*
-*.log
-logs
-**/*.backup.*
-**/*.back.*
+### Vue ###
+# gitignore template for Vue.js projects
+#
+# Recommended template: Node.gitignore
 
+# TODO: where does this rule come from?
+docs/_book
 node_modules
-bower_components
 
-*.sublime*
+# TODO: where does this rule come from?
+test/
 
-psd
-thumb
-sketch
-
-# End of https://www.toptal.com/developers/gitignore/api/react,macos
+# End of https://www.toptal.com/developers/gitignore/api/macos,vue
 
 dist
