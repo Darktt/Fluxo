@@ -1,0 +1,113 @@
+/* ============================================
+   Features Section Component
+   ============================================ */
+
+.features-section {
+  padding-top: var(--spacing-5xl);
+  padding-bottom: var(--spacing-5xl);
+  background-color: var(--color-darker);
+  position: relative;
+}
+
+/* Decorative Background Blur */
+.features-bg-blur {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background-color: var(--color-blue-900-20);
+  border-radius: var(--radius-full);
+  filter: blur(var(--blur-decorative));
+  pointer-events: none;
+}
+
+.features-container {
+  max-width: var(--container-6xl);
+  margin: 0 auto;
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.features-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 768px) {
+  .features-title {
+    font-size: var(--text-4xl);
+  }
+}
+
+.features-description {
+  color: var(--color-text-muted);
+  max-width: var(--container-3xl);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Feature Grid */
+.features-grid {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Feature Card */
+.feature-card {
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-3xl);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  transition: var(--transition-all);
+}
+
+.feature-card:hover {
+  border-color: var(--color-border-light);
+  background-color: var(--color-surface-hover);
+}
+
+.feature-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-2xl);
+  background-color: rgba(59, 130, 246, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-blue-500);
+  margin-bottom: var(--spacing-lg);
+  transition: transform var(--transition-base);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1);
+}
+
+.feature-title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.feature-description {
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}

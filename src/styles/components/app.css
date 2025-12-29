@@ -1,0 +1,13 @@
+/* ============================================
+   App Root Styles
+   ============================================ */
+
+.app-root {
+  min-height: 100vh;
+  background-color: var(--color-darker);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+/* Selection styling is handled in global.css */

@@ -26,29 +26,24 @@ onUnmounted(() => {
 
 <template>
   <header
-    :class="[
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
-      scrolled
-        ? 'bg-black/70 backdrop-blur-xl border-white/10 py-4'
-        : 'bg-transparent border-transparent py-6'
-    ]"
+    :class="['site-header', { 'site-header--scrolled': scrolled }]"
   >
-    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+    <div class="header-container">
       <a
         href="/"
         @click="handleHomeClick"
-        class="flex items-center gap-2 text-white font-bold text-xl tracking-tight hover:opacity-80 transition-opacity"
+        class="header-logo"
       >
-        <div class="text-blue-500" v-html="ICONS.Activity"></div>
+        <div class="header-logo-icon" v-html="ICONS.Activity"></div>
         <span>Fluxo</span>
       </a>
 
-      <nav class="flex items-center gap-8">
+      <nav class="header-nav">
         <a
           :href="LINKS.GITHUB"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+          class="header-link"
         >
           GitHub
         </a>

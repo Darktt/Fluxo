@@ -22,29 +22,29 @@ const features: FeatureItem[] = [
 </script>
 
 <template>
-  <section id="features" class="py-24 bg-black relative">
+  <section id="features" class="features-section">
     <!-- Background Gradient blob -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="features-bg-blur"></div>
 
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">為什麼選擇 Fluxo？</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">
+    <div class="features-container">
+      <div class="features-header">
+        <h2 class="features-title">為什麼選擇 Fluxo？</h2>
+        <p class="features-description">
           拋棄繁雜的儀表板，回歸最純粹的數據呈現。Fluxo 專注於提供最核心的資訊，不打擾您的工作流程。
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="features-grid">
         <div
           v-for="(feature, index) in features"
           :key="index"
-          class="group p-8 rounded-3xl bg-[#121212] border border-white/5 hover:border-white/10 hover:bg-[#1a1a1a] transition-all duration-300"
+          class="feature-card"
         >
-          <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 mb-6 group-hover:scale-110 transition-transform duration-300">
+          <div class="feature-icon">
             <span v-html="feature.icon"></span>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3">{{ feature.title }}</h3>
-          <p class="text-gray-400 leading-relaxed">{{ feature.description }}</p>
+          <h3 class="feature-title">{{ feature.title }}</h3>
+          <p class="feature-description">{{ feature.description }}</p>
         </div>
       </div>
     </div>

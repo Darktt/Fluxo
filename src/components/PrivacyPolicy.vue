@@ -3,12 +3,12 @@ import { LINKS } from '../constants';
 </script>
 
 <template>
-  <section class="pt-32 pb-20 px-6 min-h-screen bg-black">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-3xl md:text-4xl font-bold mb-2 text-white">Privacy Policy</h1>
-      <p class="text-gray-500 mb-12 border-b border-white/10 pb-8">Last updated: October 03, 2025</p>
+  <section class="privacy-section">
+    <div class="privacy-container">
+      <h1 class="privacy-title">Privacy Policy</h1>
+      <p class="privacy-updated">Last updated: October 03, 2025</p>
 
-      <div class="space-y-8 text-gray-400 leading-relaxed text-sm md:text-base">
+      <div class="privacy-content">
         <p>
           This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
         </p>

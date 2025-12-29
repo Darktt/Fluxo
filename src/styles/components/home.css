@@ -1,0 +1,57 @@
+/* ============================================
+   Home View Component
+   ============================================ */
+
+/* Preview Section Wrapper */
+.preview-section-wrapper {
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+}
+
+/* Call to Action Section */
+.cta-section {
+  padding-top: var(--spacing-4xl);
+  padding-bottom: var(--spacing-4xl);
+  border-top: 1px solid var(--color-border-subtle);
+  background: linear-gradient(
+    to bottom,
+    var(--color-darker) 0%,
+    var(--color-deep-black) 100%
+  );
+}
+
+.cta-container {
+  max-width: var(--container-4xl);
+  margin: 0 auto;
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+  text-align: center;
+}
+
+.cta-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-primary);
+}
+
+.cta-description {
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xl);
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background-color: var(--color-text-primary);
+  color: var(--color-darker);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-bold);
+  transition: background-color var(--transition-base);
+}
+
+.cta-button:hover {
+  background-color: var(--color-text-secondary);
+}

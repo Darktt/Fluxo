@@ -12,17 +12,17 @@ const handlePrivacyClick = (e: Event) => {
 </script>
 
 <template>
-  <footer class="py-12 border-t border-white/10 bg-black">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="text-gray-500 text-sm">
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-copyright">
         © {{ currentYear }} Fluxo Network Monitor. Open Source.
       </div>
 
-      <div class="flex gap-6">
+      <div class="footer-links">
         <a
           href="/privacy-policy"
           @click="handlePrivacyClick"
-          class="text-gray-500 hover:text-white transition-colors text-sm"
+          class="footer-link"
         >
           Privacy Policy
         </a>
@@ -30,7 +30,7 @@ const handlePrivacyClick = (e: Event) => {
           :href="LINKS.GITHUB"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-gray-500 hover:text-white transition-colors text-sm"
+          class="footer-link"
         >
           GitHub
         </a>
@@ -38,7 +38,7 @@ const handlePrivacyClick = (e: Event) => {
           :href="LINKS.APP_STORE"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-gray-500 hover:text-white transition-colors text-sm"
+          class="footer-link"
         >
           App Store
         </a>
@@ -46,7 +46,7 @@ const handlePrivacyClick = (e: Event) => {
           :href="LINKS.GITHUB + '/issues'"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-gray-500 hover:text-white transition-colors text-sm"
+          class="footer-link"
         >
           Report Issue
         </a>

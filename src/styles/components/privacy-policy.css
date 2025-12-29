@@ -1,0 +1,101 @@
+/* ============================================
+   Privacy Policy Component
+   ============================================ */
+
+.privacy-section {
+  padding-top: 8rem;
+  padding-bottom: var(--spacing-4xl);
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+  min-height: 100vh;
+  background-color: var(--color-darker);
+}
+
+.privacy-container {
+  max-width: var(--container-3xl);
+  margin: 0 auto;
+}
+
+.privacy-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 768px) {
+  .privacy-title {
+    font-size: var(--text-4xl);
+  }
+}
+
+.privacy-updated {
+  color: var(--color-text-subtle);
+  margin-bottom: var(--spacing-2xl);
+  border-bottom: 1px solid var(--color-border-light);
+  padding-bottom: var(--spacing-xl);
+}
+
+.privacy-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 768px) {
+  .privacy-content {
+    font-size: var(--text-base);
+  }
+}
+
+.privacy-content h2 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.privacy-content h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.privacy-content h4 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.privacy-content p {
+  margin-bottom: var(--spacing-md);
+}
+
+.privacy-content ul {
+  list-style: disc;
+  padding-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.privacy-content ul li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.privacy-content strong {
+  font-weight: var(--font-bold);
+}
+
+.privacy-content a {
+  color: var(--color-blue-500);
+  text-decoration: underline;
+  transition: color var(--transition-base);
+}
+
+.privacy-content a:hover {
+  color: var(--color-blue-400);
+}

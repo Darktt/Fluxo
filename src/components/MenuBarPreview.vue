@@ -3,116 +3,116 @@
 </script>
 
 <template>
-  <div class="relative mx-auto max-w-5xl mt-16 mb-20 animate-fade-in-up">
+  <div class="preview-wrapper">
     <!-- Decorative Glow -->
-    <div class="absolute -inset-1 bg-gradient-to-b from-red-900/20 to-transparent rounded-2xl blur-xl opacity-30"></div>
+    <div class="preview-glow"></div>
 
     <!-- Main Window Container -->
-    <div class="relative bg-[#18181a] border border-white/10 rounded-xl shadow-2xl overflow-hidden flex flex-col h-[600px] font-sans text-sm">
+    <div class="preview-window">
 
       <!-- Window Title Bar -->
-      <div class="h-12 bg-[#202022] flex items-center justify-between px-4 border-b border-white/5 shrink-0">
-        <div class="flex items-center gap-4">
+      <div class="preview-titlebar">
+        <div class="preview-titlebar-left">
           <!-- Traffic Lights -->
-          <div class="flex gap-2">
-            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+          <div class="preview-traffic-lights">
+            <div class="preview-traffic-light preview-traffic-light--red"></div>
+            <div class="preview-traffic-light preview-traffic-light--yellow"></div>
+            <div class="preview-traffic-light preview-traffic-light--green"></div>
           </div>
-          <span class="text-white/90 font-medium ml-2">服務運作中...</span>
+          <span class="preview-titlebar-title">服務運作中...</span>
         </div>
 
-        <div class="flex items-center gap-3">
-          <button class="flex items-center gap-2 px-3 py-1.5 rounded border border-white/10 text-gray-300 hover:bg-white/5 transition-colors text-xs">
+        <div class="preview-titlebar-right">
+          <button class="preview-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="3 6 5 6 21 6"></polyline>
               <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
             </svg>
             清除
           </button>
-          <button class="flex items-center gap-2 px-3 py-1.5 rounded border border-white/10 text-gray-300 hover:bg-white/5 transition-colors text-xs">
-            <div class="w-3 h-3 bg-gray-400 rounded-[1px]"></div>
+          <button class="preview-button">
+            <div class="preview-stop-indicator"></div>
             停止
           </button>
         </div>
       </div>
 
       <!-- Main Content Area -->
-      <div class="flex flex-1 overflow-hidden">
+      <div class="preview-content">
         <!-- Sidebar: Request List -->
-        <div class="w-1/3 border-r border-white/5 bg-[#18181a] flex flex-col">
+        <div class="preview-sidebar">
           <!-- Active Item -->
-          <div class="p-3 border-b border-white/5 bg-[#2a1e1e] border-l-[3px] border-l-red-500 cursor-pointer">
-            <div class="flex justify-between items-center mb-1">
-              <span class="text-white font-mono truncate">http://localhost:8080</span>
-              <span class="text-xs text-gray-400 font-mono">POST</span>
+          <div class="preview-sidebar-item preview-sidebar-item--active">
+            <div class="preview-sidebar-item-header">
+              <span class="preview-sidebar-item-url">http://localhost:8080</span>
+              <span class="preview-sidebar-item-method">POST</span>
             </div>
           </div>
 
           <!-- Inactive Items -->
-          <div class="p-3 border-b border-white/5 hover:bg-white/5 cursor-pointer opacity-60">
-            <div class="flex justify-between items-center mb-1">
-              <span class="text-white font-mono truncate">http://localhost:8080</span>
-              <span class="text-xs text-gray-400 font-mono">POST</span>
+          <div class="preview-sidebar-item preview-sidebar-item--inactive">
+            <div class="preview-sidebar-item-header">
+              <span class="preview-sidebar-item-url">http://localhost:8080</span>
+              <span class="preview-sidebar-item-method">POST</span>
             </div>
           </div>
-          <div class="p-3 border-b border-white/5 hover:bg-white/5 cursor-pointer opacity-60">
-            <div class="flex justify-between items-center mb-1">
-              <span class="text-white font-mono truncate">http://localhost:8080</span>
-              <span class="text-xs text-gray-400 font-mono">POST</span>
+          <div class="preview-sidebar-item preview-sidebar-item--inactive">
+            <div class="preview-sidebar-item-header">
+              <span class="preview-sidebar-item-url">http://localhost:8080</span>
+              <span class="preview-sidebar-item-method">POST</span>
             </div>
           </div>
         </div>
 
         <!-- Right Panel: Details -->
-        <div class="w-2/3 bg-[#1c1c1e] flex flex-col overflow-y-auto">
-          <div class="p-6 space-y-8">
+        <div class="preview-details">
+          <div class="preview-details-content">
             <!-- Request Headers Section -->
             <div>
-              <h4 class="text-white font-bold mb-4 text-base">Request Headers</h4>
-              <div class="space-y-2 font-mono text-xs">
-                <div class="grid grid-cols-[140px_1fr] gap-4 border-b border-white/5 pb-2">
-                  <span class="text-gray-400">Accept</span>
-                  <span class="text-gray-200">*/*</span>
+              <h4 class="preview-section-title">Request Headers</h4>
+              <div class="preview-section-content">
+                <div class="preview-grid-row">
+                  <span class="preview-grid-label">Accept</span>
+                  <span class="preview-grid-value">*/*</span>
                 </div>
-                <div class="grid grid-cols-[140px_1fr] gap-4 border-b border-white/5 pb-2">
-                  <span class="text-gray-400">Accept-Encoding</span>
-                  <span class="text-gray-200">gzip, br, deflate</span>
+                <div class="preview-grid-row">
+                  <span class="preview-grid-label">Accept-Encoding</span>
+                  <span class="preview-grid-value">gzip, br, deflate</span>
                 </div>
-                <div class="grid grid-cols-[140px_1fr] gap-4 border-b border-white/5 pb-2">
-                  <span class="text-gray-400">Content-Length</span>
-                  <span class="text-gray-200">3895950</span>
+                <div class="preview-grid-row">
+                  <span class="preview-grid-label">Content-Length</span>
+                  <span class="preview-grid-value">3895950</span>
                 </div>
-                <div class="grid grid-cols-[140px_1fr] gap-4 border-b border-white/5 pb-2">
-                  <span class="text-gray-400">Content-Type</span>
-                  <span class="text-gray-200 break-all">multipart/form-data; boundary=79d52d378f2295c5-a1b97db5cfdba56a-c9a508873b9d5b10-859541e6b083310e</span>
+                <div class="preview-grid-row">
+                  <span class="preview-grid-label">Content-Type</span>
+                  <span class="preview-grid-value">multipart/form-data; boundary=79d52d378f2295c5-a1b97db5cfdba56a-c9a508873b9d5b10-859541e6b083310e</span>
                 </div>
-                <div class="grid grid-cols-[140px_1fr] gap-4 border-b border-white/5 pb-2">
-                  <span class="text-gray-400">Host</span>
-                  <span class="text-gray-200">localhost:8080</span>
+                <div class="preview-grid-row">
+                  <span class="preview-grid-label">Host</span>
+                  <span class="preview-grid-value">localhost:8080</span>
                 </div>
-                <div class="grid grid-cols-[140px_1fr] gap-4 border-b border-white/5 pb-2">
-                  <span class="text-gray-400">User-Agent</span>
-                  <span class="text-gray-200">Fluxo-Agent</span>
+                <div class="preview-grid-row">
+                  <span class="preview-grid-label">User-Agent</span>
+                  <span class="preview-grid-value">Fluxo-Agent</span>
                 </div>
               </div>
             </div>
 
             <!-- Body Section -->
             <div>
-              <h4 class="text-white font-bold mb-4 text-base">Body</h4>
-              <div class="space-y-4 font-mono text-xs">
-                <div class="grid grid-cols-[100px_1fr] gap-4">
-                  <span class="text-gray-400 pt-1">Header</span>
-                  <div class="text-gray-400">
+              <h4 class="preview-section-title">Body</h4>
+              <div class="preview-body-section">
+                <div class="preview-body-row">
+                  <span class="preview-body-label">Header</span>
+                  <div class="preview-body-content">
                     Content-Disposition: form-data; name="image"; filename="桌布1.jpeg"<br/>
                     Content-Type: image/jpeg
                   </div>
                 </div>
-                <div class="grid grid-cols-[100px_1fr] gap-4 items-center">
-                  <span class="text-gray-400">Content</span>
+                <div class="preview-body-row preview-body-row--center">
+                  <span class="preview-body-label">Content</span>
                   <div>
-                    <button class="flex items-center gap-2 px-3 py-1.5 bg-[#333] hover:bg-[#444] rounded text-white transition-colors">
+                    <button class="preview-save-button">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                         <polyline points="7 10 12 15 17 10"></polyline>
@@ -123,8 +123,8 @@
                   </div>
                 </div>
 
-                <!-- Separator Line similar to screenshot -->
-                <div class="h-px bg-white/10 w-full mt-4"></div>
+                <!-- Separator Line -->
+                <div class="preview-separator"></div>
               </div>
             </div>
           </div>
@@ -132,8 +132,8 @@
       </div>
 
       <!-- Bottom Status Bar -->
-      <div class="h-8 bg-[#202022] border-t border-white/5 flex items-center px-4 text-xs text-gray-500 font-mono">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+      <div class="preview-statusbar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="2" y1="12" x2="22" y2="12"></line>
           <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
