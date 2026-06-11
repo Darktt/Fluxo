@@ -2,7 +2,6 @@
 //  MonitorMiddleware.swift
 //
 //  Created by Eden on 2025/8/19.
-//  
 //
 
 import Foundation
@@ -23,7 +22,7 @@ let MonitorMiddleware: Middleware<MonitorState, MonitorAction> = {
             if case .startMonitor = action {
                 
                 let port: UInt16 = store.state.setting.port
-                let newAction = startMonitorAction(portNumber: port)
+                let newAction = startMonitorAction(portNumber: port, store: store)
                 
                 next(newAction)
                 return
@@ -44,15 +43,15 @@ let MonitorMiddleware: Middleware<MonitorState, MonitorAction> = {
 }
 
 private
-func startMonitorAction(portNumber: UInt16) -> MonitorAction
+func startMonitorAction(portNumber: UInt16, store: MonitorStore) -> MonitorAction
 {
     do {
         
         let port = NWEndpoint.Port(integerLiteral: portNumber)
         let service = try HTTPService(port: port)
-        service.statusUpdateHandler = serviceStatusUpdate(status:)
-        service.receiveRequestHandler = receiveRequest(request:)
-        service.errorHandler = errorHandle(error:)
+        service.statusUpdateHandler = makeStatusUpdateHandler(store: store)
+        service.receiveRequestHandler = makeReceiveRequestHandler(store: store)
+        service.errorHandler = makeErrorHandler(store: store)
         service.start()
         
         let action = MonitorAction.startMonitorResponse(service)
@@ -70,38 +69,50 @@ func startMonitorAction(portNumber: UInt16) -> MonitorAction
 }
 
 private
-func serviceStatusUpdate(status: HTTPService.Status)
+func makeStatusUpdateHandler(store: MonitorStore) -> HTTPService.StatusUpdateHandler
 {
-    Task {
-        @MainActor in
+    {
+        status in
         
-        let action = MonitorAction.updateStatus(status)
-        
-        kMonitorStore.dispatch(action)
+        Task {
+            @MainActor in
+            
+            let action = MonitorAction.updateStatus(status)
+            
+            store.dispatch(action)
+        }
     }
 }
 
 private
-func receiveRequest(request: HTTPMessage)
+func makeReceiveRequestHandler(store: MonitorStore) -> HTTPService.ReceiveRequestHandler
 {
-    Task {
-        @MainActor in
+    {
+        request in
         
-        let action = MonitorAction.receiveRequest(request)
-        
-        kMonitorStore.dispatch(action)
+        Task {
+            @MainActor in
+            
+            let action = MonitorAction.receiveRequest(request)
+            
+            store.dispatch(action)
+        }
     }
 }
 
 private
-func errorHandle(error: NWError)
+func makeErrorHandler(store: MonitorStore) -> HTTPService.ErrorHandler
 {
-    Task {
-        @MainActor in
+    {
+        error in
         
-        let error: MonitorError = (error.errorCode, error.localizedDescription)
-        let action = MonitorAction.error(error)
-        
-        kMonitorStore.dispatch(action)
+        Task {
+            @MainActor in
+            
+            let error: MonitorError = (error.errorCode, error.localizedDescription)
+            let action = MonitorAction.error(error)
+            
+            store.dispatch(action)
+        }
     }
 }
