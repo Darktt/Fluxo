@@ -40,7 +40,7 @@ struct Setting
     }
     
     public
-    let version: String = "1.0.1"
+    let version: String = "1.0.2"
     
     @UserDefaultsWrapper("requestItemDates", defaultValue: [])
     private

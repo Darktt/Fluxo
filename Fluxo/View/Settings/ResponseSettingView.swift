@@ -33,6 +33,26 @@ struct ResponseSettingView: View
     private
     let limitCount: Int = 20
     
+    @State
+    private
+    var willDeleteItem: ResponseItem?
+    
+    private
+    var isPresentAlert: Binding<Bool> {
+        
+        Binding {
+            
+            self.willDeleteItem != nil
+        } set: {
+            
+            isPresented in
+            
+            if !isPresented {
+                self.willDeleteItem = nil
+            }
+        }
+    }
+    
     public
     var body: some View {
         
@@ -56,6 +76,21 @@ struct ResponseSettingView: View
             }
             .navigationTitle("Custom Responses")
         }
+        .alert("Delete item", isPresented: self.isPresentAlert) {
+            
+            Button(role: .destructive) {
+            
+                self.sendDeleteAction(with: self.willDeleteItem!)
+                self.willDeleteItem = nil
+            } label: {
+                
+                Text("Delete")
+            }
+        } message: {
+            
+            Text("Ensure delete this item?")
+        }
+
     }
 }
 
@@ -119,9 +154,7 @@ extension ResponseSettingView
 {
     func deleteItem(item: ResponseItem)
     {
-        let action = MonitorAction.deleteResponseItem(item)
-        
-        self.store.dispatch(action)
+        self.willDeleteItem = item
     }
     
     func editItem(item: ResponseItem)
@@ -132,6 +165,17 @@ extension ResponseSettingView
     func addItem()
     {
         self.path.append(ResponseItem.empty())
+    }
+}
+
+private
+extension ResponseSettingView
+{
+    func sendDeleteAction(with item: ResponseItem)
+    {
+        let action = MonitorAction.deleteResponseItem(item)
+        
+        self.store.dispatch(action)
     }
 }
 
