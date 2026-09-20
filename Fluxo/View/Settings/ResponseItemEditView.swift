@@ -142,7 +142,18 @@ extension ResponseItemEditView
                 
                 let newItem = ResponseItem(method: self.method, path: self.path, content: self.content)
                 
-                let action = MonitorAction.addResponseItem(newItem)
+                let action = {
+                    
+                    let previousItem = self.responseItem
+                    let isNewItem: Bool = previousItem.isEmpty
+                    
+                    if isNewItem {
+                        
+                        return MonitorAction.addResponseItem(newItem)
+                    }
+                    
+                    return MonitorAction.editResponseItem(new: newItem, previous: previousItem)
+                }()
                 
                 self.store.dispatch(action)
                 self.navigationPath.removeLast()

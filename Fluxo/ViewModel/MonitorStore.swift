@@ -58,6 +58,11 @@ func kReducer(state: MonitorState, action: MonitorAction) -> MonitorState {
         newState.setting.add(item)
     }
     
+    if case let .editResponseItem(new, previous) = action {
+        
+        newState.setting.edit(new, previous: previous)
+    }
+    
     if case let .deleteResponseItem(item) = action {
         
         newState.setting.remove(item)

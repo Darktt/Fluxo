@@ -14,7 +14,7 @@ struct ResponseItemCell: View
     typealias ActionHandler = (ResponseItem) -> Void
     
     public
-    let requestItem: ResponseItem
+    let responseItem: ResponseItem
     
     public
     let deleteAction: ActionHandler?
@@ -25,7 +25,7 @@ struct ResponseItemCell: View
     private
     var methodColor: Color {
         
-        let method = self.requestItem.method
+        let method = self.responseItem.method
         if method == .get {
             
             return .green
@@ -50,20 +50,20 @@ struct ResponseItemCell: View
             
             HStack(spacing: 5.0) {
                 
-                Text(self.requestItem.path)
+                Text(self.responseItem.path)
                     .font(.title3.bold())
                     .padding(.horizontal, 10.0)
                 
                 Spacer()
                 
-                if !self.requestItem.path.isEmpty {
+                if !self.responseItem.path.isEmpty {
                     
                     if self.isHovered {
                         
                         self.deleteAndEditButton()
                     }
                     
-                    Text(self.requestItem.method.rawValue.uppercased())
+                    Text(self.responseItem.method.rawValue.uppercased())
                         .font(.subheadline.weight(.semibold))
                         .foregroundColor(self.methodColor)
                         .padding(.horizontal, 10.0)
@@ -91,7 +91,7 @@ struct ResponseItemCell: View
     public
     init(requestItem: ResponseItem, deleteAction: ActionHandler? = nil, editAction: ActionHandler? = nil)
     {
-        self.requestItem = requestItem
+        self.responseItem = requestItem
         self.deleteAction = deleteAction
         self.editAction = editAction
     }
@@ -106,7 +106,7 @@ extension ResponseItemCell
             
             Button {
                 
-                self.deleteAction?(self.requestItem)
+                self.deleteAction?(self.responseItem)
             } label: {
                 
                 Image(systemName: "trash")
@@ -117,7 +117,7 @@ extension ResponseItemCell
             
             Button {
                 
-                self.editAction?(self.requestItem)
+                self.editAction?(self.responseItem)
             } label: {
                 
                 Image(systemName: "long.text.page.and.pencil.fill")

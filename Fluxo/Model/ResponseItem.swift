@@ -19,6 +19,12 @@ struct ResponseItem
     public
     let content: String
     
+    public
+    var isEmpty: Bool {
+        
+        self.path.isEmpty && self.content.isEmpty
+    }
+    
     public static
     func empty() -> ResponseItem
     {

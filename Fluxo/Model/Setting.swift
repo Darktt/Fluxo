@@ -76,7 +76,13 @@ struct Setting
     public mutating
     func add(_ item: ResponseItem)
     {
-        if let index = self.requestItems.firstIndex(of: item) {
+        self.requestItems.append(item)
+    }
+    
+    public mutating
+    func edit(_ item: ResponseItem, previous: ResponseItem)
+    {
+        if let index = self.requestItems.firstIndex(of: previous) {
             
             self.requestItems.remove(at: index)
         }

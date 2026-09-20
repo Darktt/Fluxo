@@ -32,6 +32,8 @@ enum MonitorAction
     
     case addResponseItem(ResponseItem)
     
+    case editResponseItem(new: ResponseItem, previous: ResponseItem)
+    
     case deleteResponseItem(ResponseItem)
     
     case fetchChangeLog(ChangeLogRequest)
