@@ -30,9 +30,12 @@ struct ChangeLog: View
     public
     var body: some View {
         
-        LazyVStack {
+        ScrollView {
             
-            MarkdownView(self.log)
+            LazyVStack {
+                
+                MarkdownView(self.log)
+            }
         }
         .padding([.horizontal, .bottom], 20.0)
         .onAppear(perform: self.isWatched)

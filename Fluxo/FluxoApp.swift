@@ -50,7 +50,7 @@ struct FluxoApp: App
             
             ChangeLog()
                 .environmentObject(kMonitorStore)
-                .frame(width: 600.0, height: 200.0)
+                .frame(width: 600.0, height: 500.0)
                 .disableFullScreen()
         }
         .windowStyle(.hiddenTitleBar)
